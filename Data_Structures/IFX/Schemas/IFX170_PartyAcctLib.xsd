@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PartyAcctRelAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PartyAcctRelDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_PartyAcctRelInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PartyAcctRelMod.xsd"/>
+	<xsd:complexType name="PartyAcctRelInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="PartyAcctRel" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="OwnerPercent" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyAcctRelRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PartyAcctRelId"/>
+			<xsd:element ref="PartyAcctRelInfo"/>
+			<xsd:element ref="FullName" minOccurs="0"/>
+			<xsd:element ref="TINInfo" minOccurs="0"/>
+			<xsd:element ref="OwnerInd" minOccurs="0"/>
+			<xsd:element ref="BankAcctStatus" minOccurs="0"/>
+			<xsd:element ref="OpenDt" minOccurs="0"/>
+			<xsd:element ref="CloseDt" minOccurs="0"/>
+			<xsd:element ref="PrimaryAcct" minOccurs="0"/>
+			<xsd:element ref="Nickname" minOccurs="0"/>
+			<xsd:element ref="AcctBal" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PartyAcctRelStatus" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyAcctRelStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PartyAcctRelStatusCode"/>
+			<xsd:element ref="StatusDesc"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyAcctRel_Type">
+		<xsd:sequence>
+			<xsd:element ref="PartyAcctRelType" maxOccurs="unbounded"/>
+			<xsd:element ref="PartyAcctRelDesc" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PartyAcctRelRec" type="PartyAcctRelRec_Type"/>
+	<xsd:element name="PartyAcctRelStatus" type="PartyAcctRelStatus_Type"/>
+	<xsd:element name="PartyAcctRelStatusCode" type="ClosedEnum"/>
+	<xsd:element name="PartyAcctRelDesc" type="Desc_Type"/>
+	<xsd:element name="PartyAcctRelInfo" type="PartyAcctRelInfo_Type"/>
+	<xsd:element name="PartyAcctRel" type="PartyAcctRel_Type"/>
+</xsd:schema>

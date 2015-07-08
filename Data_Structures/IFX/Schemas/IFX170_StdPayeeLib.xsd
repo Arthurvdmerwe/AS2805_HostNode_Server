@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_StdPayeeInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_StdPayeeRev.xsd"/>
+	<xsd:complexType name="StdPayeeMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="StdPayeeInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StdPayeeRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="StdPayeeId"/>
+			<xsd:element ref="StdPayeeInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StdPayeeMsgRqInfo" type="StdPayeeMsgRqInfo_Type"/>
+	<xsd:element name="StdPayeeRec" type="StdPayeeRec_Type"/>
+</xsd:schema>

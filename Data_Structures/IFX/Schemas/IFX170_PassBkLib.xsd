@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemStatusInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkStatusInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkItemAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PassBkAdd.xsd"/>
+	<xsd:complexType name="PassBkItemMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="PassBkItemAddRq"/>
+			<xsd:element ref="PassBkItemModRq"/>
+			<xsd:element ref="PassBkItemDelRq"/>
+			<xsd:element ref="PassBkItemInqRq"/>
+			<xsd:element ref="PassBkItemAudRq"/>
+			<xsd:element ref="PassBkItemSyncRq"/>
+			<xsd:element ref="PassBkItemStatusModRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PassBkItemAddRs"/>
+				<xsd:element ref="PassBkItemModRs"/>
+				<xsd:element ref="PassBkItemDelRs"/>
+				<xsd:element ref="PassBkItemRevRs"/>
+				<xsd:element ref="PassBkItemStatusModRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemDetail_Type">
+		<xsd:sequence>
+			<xsd:element ref="PostedDt" minOccurs="0"/>
+			<xsd:element ref="TrnType" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BalAmt" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkId"/>
+			<xsd:element ref="PassBkItemDetail"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkItemStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemStatusRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkItemId"/>
+			<xsd:element ref="PassBkItemStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkItemRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkItemId"/>
+			<xsd:element ref="PassBkItemInfo"/>
+			<xsd:element ref="PassBkItemStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="PassBkAddRq"/>
+			<xsd:element ref="PassBkModRq"/>
+			<xsd:element ref="PassBkDelRq"/>
+			<xsd:element ref="PassBkInqRq"/>
+			<xsd:element ref="PassBkAudRq"/>
+			<xsd:element ref="PassBkSyncRq"/>
+			<xsd:element ref="PassBkStatusModRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PassBkAddRs"/>
+				<xsd:element ref="PassBkModRs"/>
+				<xsd:element ref="PassBkDelRs"/>
+				<xsd:element ref="PassBkRevRs"/>
+				<xsd:element ref="PassBkStatusModRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="Name" minOccurs="0"/>
+			<xsd:element ref="PassBkLastItemPrinted" minOccurs="0"/>
+			<xsd:element ref="PassBkLastBalPrinted" minOccurs="0"/>
+			<xsd:element ref="PassBkNextLine" minOccurs="0"/>
+			<xsd:element ref="PassBkNextPage" minOccurs="0"/>
+			<xsd:element ref="PassBkFormat" minOccurs="0"/>
+			<xsd:element ref="PassBkLinesPerPage" minOccurs="0"/>
+			<xsd:element ref="PassBkPagesPerBook" minOccurs="0"/>
+			<xsd:element ref="ClientChgCode" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkStatusCode"/>
+			<xsd:element ref="PassBkNewItemsToPrint" minOccurs="0"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkStatusRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkId"/>
+			<xsd:element ref="PassBkStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PassBkRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PassBkId"/>
+			<xsd:element ref="PassBkInfo"/>
+			<xsd:element ref="PassBkStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PassBkInfo" type="PassBkInfo_Type"/>
+	<xsd:element name="PassBkFormat" type="PassBkFormat_Type"/>
+	<xsd:element name="PassBkMsgRec" type="PassBkMsgRec_Type"/>
+	<xsd:element name="PassBkMsgRqInfo" type="PassBkMsgRqInfo_Type"/>
+	<xsd:element name="PassBkLastItemPrinted" type="Identifier"/>
+	<xsd:element name="PassBkLastBalPrinted" type="CurrencyAmount"/>
+	<xsd:element name="PassBkLinesPerPage" type="Long"/>
+	<xsd:element name="PassBkNewItemsToPrint" type="Long"/>
+	<xsd:element name="PassBkNextLine" type="Long"/>
+	<xsd:element name="PassBkNextPage" type="Long"/>
+	<xsd:element name="PassBkPagesPerBook" type="Long"/>
+	<xsd:element name="PassBkRec" type="PassBkRec_Type"/>
+	<xsd:element name="PassBkStatus" type="PassBkStatus_Type"/>
+	<xsd:element name="PassBkStatusCode" type="ClosedEnum"/>
+	<xsd:element name="PassBkStatusRec" type="PassBkStatusRec_Type"/>
+	<xsd:element name="PassBkItemDetail" type="PassBkItemDetail_Type"/>
+	<xsd:element name="PassBkItemId" type="Identifier"/>
+	<xsd:element name="PassBkItemInfo" type="PassBkItemInfo_Type"/>
+	<xsd:element name="PassBkItemMsgRqInfo" type="PassBkItemMsgRqInfo_Type"/>
+	<xsd:element name="PassBkItemMsgRec" type="PassBkItemMsgRec_Type"/>
+	<xsd:element name="PassBkItemRec" type="PassBkItemRec_Type"/>
+	<xsd:element name="PassBkItemStatus" type="PassBkItemStatus_Type"/>
+	<xsd:element name="PassBkItemStatusCode" type="ClosedEnum"/>
+	<xsd:element name="PassBkItemStatusRec" type="PassBkItemStatusRec_Type"/>
+</xsd:schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_TerminalLib.xsd"/>
+	<xsd:complexType name="TerminalSPObjInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="TerminalSPObjId" maxOccurs="unbounded"/>
+			<xsd:element ref="SPName" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="TerminalId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="TerminalSPObjStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjInqRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+			<xsd:element ref="TerminalSPObjId" maxOccurs="unbounded"/>
+			<xsd:element ref="SPName" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="TerminalId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="TerminalSPObjStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TerminalSPObjInqRq" type="TerminalSPObjInqRq_Type"/>
+	<xsd:element name="TerminalSPObjInqRs" type="TerminalSPObjInqRs_Type"/>
+</xsd:schema>

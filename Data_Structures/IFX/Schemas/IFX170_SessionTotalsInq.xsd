@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PostingSessionLib.xsd"/>
+	<xsd:complexType name="SessionTotalsInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="SessionType"/>
+			<xsd:element ref="SessionId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SessionTotalsInqRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="SessionType" minOccurs="0"/>
+			<xsd:element ref="SessionId" minOccurs="0"/>
+			<xsd:element ref="NetSessionTotals" minOccurs="0"/>
+			<xsd:element ref="SessionTotalsRec" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SessionTotalsInqRq" type="SessionTotalsInqRq_Type"/>
+	<xsd:element name="SessionTotalsInqRs" type="SessionTotalsInqRs_Type"/>
+</xsd:schema>

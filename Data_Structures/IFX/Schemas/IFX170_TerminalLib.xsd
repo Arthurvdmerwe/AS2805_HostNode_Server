@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalSPObjMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalObjStatusMod.xsd"/>
+	<xsd:complexType name="TerminalObjInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="PostAddr" minOccurs="0"/>
+			<xsd:element ref="Desc" minOccurs="0"/>
+			<xsd:element ref="Name" minOccurs="0"/>
+			<xsd:element ref="UTCOffset" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalObjMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="TerminalObjAddRs"/>
+				<xsd:element ref="TerminalObjModRs"/>
+				<xsd:element ref="TerminalObjDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalObjRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="TerminalObjId"/>
+			<xsd:element ref="TerminalObjInfo"/>
+			<xsd:element ref="TerminalObjStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalObjStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="TerminalObjStatusCode"/>
+			<xsd:element ref="RequestedOperationMode" minOccurs="0"/>
+			<xsd:element ref="ExpectedOpenDt" minOccurs="0"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="TerminalSPObjId"/>
+			<xsd:element ref="TerminalSPObjInfo"/>
+			<xsd:element ref="TerminalSPObjStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SPName"/>
+			<xsd:element ref="TerminalId"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="TerminalSPObjAddRs"/>
+				<xsd:element ref="TerminalSPObjModRs"/>
+				<xsd:element ref="TerminalSPObjDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="TerminalSPObjStatusCode"/>
+			<xsd:element ref="ExpectedAvailDt" minOccurs="0"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="TerminalSPObjId"/>
+			<xsd:element ref="TerminalSPObjInfo"/>
+			<xsd:element ref="TerminalSPObjStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TerminalObjInfo" type="TerminalObjInfo_Type"/>
+	<xsd:element name="TerminalObjMsgRec" type="TerminalObjMsgRec_Type"/>
+	<xsd:element name="TerminalObjRec" type="TerminalObjRec_Type"/>
+	<xsd:element name="TerminalObjStatus" type="TerminalObjStatus_Type"/>
+	<xsd:element name="TerminalObjStatusCode" type="ClosedEnum"/>
+	<xsd:element name="TerminalSPObjInfo" type="TerminalSPObjInfo_Type"/>
+	<xsd:element name="TerminalSPObjMsgRec" type="TerminalSPObjMsgRec_Type"/>
+	<xsd:element name="TerminalSPObjRec" type="TerminalSPObjRec_Type"/>
+	<xsd:element name="TerminalSPObjStatus" type="TerminalSPObjStatus_Type"/>
+	<xsd:element name="TerminalSPObjStatusCode" type="ClosedEnum"/>
+</xsd:schema>

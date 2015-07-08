@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="PmtInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="PmtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PmtId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="RecPmtId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="DepAcctIdFrom"/>
+				<xsd:element ref="CardAcctIdFrom"/>
+			</xsd:choice>
+			<xsd:element ref="Category" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Memo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkClrDt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="FIDebitTrcNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="FICreditTrcNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PmtMethod" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillingAcct" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Name" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StdPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Nickname" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PmtStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+			<xsd:element ref="SelRangePrcDt" minOccurs="0"/>
+			<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncToken" minOccurs="0"/>
+			<xsd:element ref="IncHistory" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+				<xsd:element ref="PmtType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PmtId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="RecPmtId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="DepAcctIdFrom"/>
+					<xsd:element ref="CardAcctIdFrom"/>
+				</xsd:choice>
+				<xsd:element ref="Category" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Memo" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ChkClrDt" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="FIDebitTrcNum" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="FICreditTrcNum" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PmtMethod" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillingAcct" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Name" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="StdPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Nickname" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PmtStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+				<xsd:element ref="SelRangePrcDt" minOccurs="0"/>
+				<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+				<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+				<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="IncToken" minOccurs="0"/>
+				<xsd:element ref="IncHistory" minOccurs="0"/>
+				<xsd:element ref="PmtRec" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Token" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PmtInqRq" type="PmtInqRq_Type"/>
+	<xsd:element name="PmtInqRs" type="PmtInqRs_Type"/>
+</xsd:schema>

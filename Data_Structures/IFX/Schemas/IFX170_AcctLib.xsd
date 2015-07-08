@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_AcctInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_AcctRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_BalInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BalRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankAcctStmtImgInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankAcctStmtImgRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankAcctTaxInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankAcctTrnImgInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankAcctTrnImgRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CCAcctStmtInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CCAcctStmtRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CCAcctTrnInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CCAcctTrnRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSvcSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctStmtAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctStmtInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctStmtRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctTrnAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctTrnInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAcctTrnRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_IntRateInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_IntRateRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctIdMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcAcctSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepAppSync.xsd"/>
+	<xsd:complexType name="AcctMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="AcctInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BalMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="BalInqRq"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctFeatLimit_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankAcctFeatLimitType"/>
+			<xsd:element ref="TrnSrc" minOccurs="0"/>
+			<xsd:element ref="CurAmt"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctFeatSupt_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankAcctFeatType"/>
+			<xsd:element ref="TrnSrc" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BankAcctFeatLimit" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CurCode"/>
+			<xsd:element ref="Desc" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CustName" minOccurs="0"/>
+				<xsd:element ref="PersonName" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="OrgContact" minOccurs="0"/>
+				<xsd:element ref="ContactInfo" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element ref="CustAcctUse" minOccurs="0"/>
+			<xsd:element ref="PrimaryAcct" minOccurs="0"/>
+			<xsd:element ref="Term" minOccurs="0"/>
+			<xsd:element ref="IntRateInfo" minOccurs="0"/>
+			<xsd:element ref="BackupWithholding" minOccurs="0"/>
+			<xsd:element ref="TaxCountry" minOccurs="0"/>
+			<xsd:element ref="TaxProvince" minOccurs="0"/>
+			<xsd:element ref="Ownership" minOccurs="0"/>
+			<xsd:element ref="ProductId" minOccurs="0"/>
+			<xsd:element ref="InitialDeposit" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctRec_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="BankAcctInfo"/>
+			<xsd:element ref="BankAcctStatus" minOccurs="0"/>
+			<xsd:element ref="AcctTaxType" minOccurs="0"/>
+			<xsd:element ref="XferFromSupt" minOccurs="0"/>
+			<xsd:element ref="XferToSupt" minOccurs="0"/>
+			<xsd:element ref="PaySupt" minOccurs="0"/>
+			<xsd:element ref="BankAcctFeatSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="AcctBal" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctStmtImgInqRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="StartDt"/>
+			<xsd:element ref="EndDt"/>
+			<xsd:choice>
+				<xsd:element ref="StmtImg" minOccurs="0"/>
+				<xsd:element ref="ImageURL" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctStmtImgMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankAcctStmtImgInqRq"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctTrnImgMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="BankAcctTrnImgInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctTrnImgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="TrnType" minOccurs="0"/>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:element ref="ChkNum" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0"/>
+			<xsd:element ref="PrcDt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="TrnImage" minOccurs="0"/>
+				<xsd:element ref="ImageURL" minOccurs="0"/>
+				<xsd:element ref="ChkImg" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctTrnRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="TrnType" minOccurs="0"/>
+			<xsd:element ref="TrnSrc" minOccurs="0"/>
+			<xsd:element ref="PostedDt"/>
+			<xsd:element ref="OrigDt" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="OrigCurAmt" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IndustId" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Name" minOccurs="0"/>
+			<xsd:element ref="CounterpartyInfo" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillRefInfo" minOccurs="0"/>
+			<xsd:element ref="RemitAdviceRefId" minOccurs="0"/>
+			<xsd:element ref="CustPayeeInfo" minOccurs="0"/>
+			<xsd:element ref="InvoiceInfo" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefIdCorrect" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="LastPmtDt" minOccurs="0"/>
+			<xsd:element ref="LastPmtCurAmt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCAcctStmtMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="CCAcctStmtInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCAcctStmtRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+			<xsd:element ref="NextDt" minOccurs="0"/>
+			<xsd:element ref="AcctBal" maxOccurs="unbounded"/>
+			<xsd:element ref="ExtAcctBal" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="MinAmtDue" minOccurs="0"/>
+			<xsd:element ref="StmtSummAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DelinqAging" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StartDt"/>
+			<xsd:element ref="EndDt"/>
+			<xsd:element ref="MktgInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="URL" minOccurs="0"/>
+			<xsd:element ref="CCAcctTrnRec" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCAcctTrnMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="CCAcctTrnInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCAcctTrnRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankAcctTrnRec"/>
+			<xsd:element ref="SalesSlipRefNum"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustSvcInfo_Type">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustSvcMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CustSvcAddRs"/>
+				<xsd:element ref="CustSvcModRs"/>
+				<xsd:element ref="CustSvcStatusModRs"/>
+				<xsd:element ref="CustSvcDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustSvcRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustSvcId"/>
+			<xsd:element ref="CustSvcInfo"/>
+			<xsd:element ref="CustSvcStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustSvcStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustSvcStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="ResolvePendingDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="StopCount" minOccurs="0"/>
+			<xsd:element ref="HoldCount" minOccurs="0"/>
+			<xsd:element ref="LastDepDt" minOccurs="0"/>
+			<xsd:element ref="LastDepCurAmt" minOccurs="0"/>
+			<xsd:element ref="DepMatureDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAcctStmtMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctStmtInqRq"/>
+				<xsd:element ref="DepAcctStmtAdviseRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAcctStmtRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+			<xsd:element ref="DepAcctId" minOccurs="0"/>
+			<xsd:element ref="DepAcctStmtId" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="NextDt" minOccurs="0"/>
+			<xsd:element ref="AcctBal" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StmtSummAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StartDt"/>
+			<xsd:element ref="EndDt"/>
+			<xsd:element ref="URL" minOccurs="0"/>
+			<xsd:element ref="DepAcctTrnRec" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAcctTrnMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctTrnInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAcctTrnRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankAcctTrnRec"/>
+			<xsd:element ref="StmtRunningBal" minOccurs="0"/>
+			<xsd:element ref="AvailDt" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkNum" minOccurs="0"/>
+			<xsd:element ref="XferId" minOccurs="0"/>
+			<xsd:element ref="PmtId" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="DepAcctIdTo"/>
+				<xsd:element ref="CardAcctIdTo"/>
+				<xsd:element ref="LoanAcctIdTo"/>
+			</xsd:choice>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="NetworkTrnInfo"/>
+				<xsd:element ref="ATMTrnInfo"/>
+			</xsd:choice>
+			<xsd:element ref="USA.ACHTrnInfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IntRateInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="Rate"/>
+			<xsd:element ref="Desc" minOccurs="0"/>
+			<xsd:element ref="IntAPY" minOccurs="0"/>
+			<xsd:element ref="Term" minOccurs="0"/>
+			<xsd:element ref="LowCurAmt" minOccurs="0"/>
+			<xsd:element ref="HighCurAmt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IntRateMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="IntRateInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LoanAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="Term" minOccurs="0"/>
+			<xsd:element ref="MatDt" minOccurs="0"/>
+			<xsd:element ref="LoanInfoCommon" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LoanInfoCommon_Type">
+		<xsd:sequence>
+			<xsd:element ref="OrigDt" minOccurs="0"/>
+			<xsd:element ref="Freq" minOccurs="0"/>
+			<xsd:element ref="RemainingPmtCount" minOccurs="0"/>
+			<xsd:element ref="PurposeDesc" minOccurs="0"/>
+			<xsd:element ref="CollateralDesc" minOccurs="0"/>
+			<xsd:element ref="CompletedPmtCount" minOccurs="0"/>
+			<xsd:element ref="RegPmtCurAmt" minOccurs="0"/>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="NextPmtCurAmt" minOccurs="0"/>
+			<xsd:element ref="LastPmtDt" minOccurs="0"/>
+			<xsd:element ref="LastPmtCurAmt" minOccurs="0"/>
+			<xsd:element ref="PastDuePmtCount" minOccurs="0"/>
+			<xsd:element ref="PrepayPenalty" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LOCAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="LOCLimit" minOccurs="0"/>
+			<xsd:element ref="MinPmtCurAmt" minOccurs="0"/>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="LoanInfoCommon" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MortAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="OrigDt" minOccurs="0"/>
+			<xsd:element ref="LoanInfoCommon" minOccurs="0"/>
+			<xsd:element ref="LastPmtDt" minOccurs="0"/>
+			<xsd:element ref="TaxPaidDt" minOccurs="0"/>
+			<xsd:element ref="TaxPaidCurAmt" minOccurs="0"/>
+			<xsd:element ref="LastYrTaxPaidDt" minOccurs="0"/>
+			<xsd:element ref="LastYrTaxPaidCurAmt" minOccurs="0"/>
+			<xsd:element ref="InsPaidDt" minOccurs="0"/>
+			<xsd:element ref="InsPaidCurAmt" minOccurs="0"/>
+			<xsd:element ref="LastYrInsPaidDt" minOccurs="0"/>
+			<xsd:element ref="LastYrInsPaidCurAmt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctId_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustSvcId"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+				<xsd:sequence>
+					<xsd:element ref="PresAcctId"/>
+					<xsd:element ref="PresAcctInfo"/>
+				</xsd:sequence>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="Nickname" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="SvcAcctAddRs"/>
+				<xsd:element ref="SvcAcctModRs"/>
+				<xsd:element ref="SvcAcctStatusModRs"/>
+				<xsd:element ref="SvcAcctIdModRs"/>
+				<xsd:element ref="SvcAcctDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="SvcAcctAddRq"/>
+				<xsd:element ref="SvcAcctModRq"/>
+				<xsd:element ref="SvcAcctIdModRq"/>
+				<xsd:element ref="SvcAcctStatusModRq"/>
+				<xsd:element ref="SvcAcctDelRq"/>
+				<xsd:element ref="SvcAcctInqRq"/>
+				<xsd:element ref="SvcAcctAudRq"/>
+				<xsd:element ref="SvcAcctSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcAcctId"/>
+			<xsd:element ref="SvcAcctInfo"/>
+			<xsd:element ref="SvcAcctStatus"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SvcAcctStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcAcctStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="ResolvePendingDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAppAcctId_Type">
+		<xsd:sequence>
+			<xsd:element ref="AcctId" minOccurs="0"/>
+			<xsd:element ref="AcctType"/>
+			<xsd:element ref="AcctKey"/>
+			<xsd:element ref="AcctCur"/>
+			<xsd:element ref="BankInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAppInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepApplicant" maxOccurs="unbounded"/>
+			<xsd:element ref="DepAppAcctId"/>
+			<xsd:element ref="BankAcctInfo"/>
+			<xsd:element ref="CardType" minOccurs="0"/>
+			<xsd:element ref="OverdraftFunding" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CreatedDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAppMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="DepAppAddRs"/>
+				<xsd:element ref="DepAppModRs"/>
+				<xsd:element ref="DepAppCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAppRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepAppId"/>
+			<xsd:element ref="DepAppInfo"/>
+			<xsd:element ref="DepAppStatus" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepAppStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepAppStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DepAppMsgRec" type="DepAppMsgRec_Type"/>
+	<xsd:element name="DepAppRec" type="DepAppRec_Type"/>
+	<xsd:element name="DepAppStatus" type="DepAppStatus_Type"/>
+	<xsd:element name="DepAppStatusCode" type="DepAppStatusCode_Type"/>
+	<xsd:element name="DepAppId" type="DepAppId_Type"/>
+	<xsd:element name="DepAppInfo" type="DepAppInfo_Type"/>
+	<xsd:element name="DepAppAcctId" type="DepAppAcctId_Type"/>
+	<xsd:element name="AcctMsgRqInfo" type="AcctMsgRqInfo_Type"/>
+	<xsd:element name="BalMsgRqInfo" type="BalMsgRqInfo_Type"/>
+	<xsd:element name="BankAcctFeatLimit" type="BankAcctFeatLimit_Type"/>
+	<xsd:element name="BankAcctFeatLimitType" type="BankAcctFeatLimitType_Type"/>
+	<xsd:element name="BankAcctFeatSupt" type="BankAcctFeatSupt_Type"/>
+	<xsd:element name="BankAcctFeatType" type="BankAcctFeatType_Type"/>
+	<xsd:element name="BankAcctInfo" type="BankAcctInfo_Type"/>
+	<xsd:element name="BankAcctRec" type="BankAcctRec_Type"/>
+	<xsd:element name="BankAcctStmtImgInqRec" type="BankAcctStmtImgInqRec_Type"/>
+	<xsd:element name="BankAcctStmtImgMsgRqInfo" type="BankAcctStmtImgMsgRqInfo_Type"/>
+	<xsd:element name="BankAcctTrnImgMsgRqInfo" type="BankAcctTrnImgMsgRqInfo_Type"/>
+	<xsd:element name="BankAcctTrnImgRec" type="BankAcctTrnImgRec_Type"/>
+	<xsd:element name="BankAcctTrnRec" type="BankAcctTrnRec_Type"/>
+	<xsd:element name="CCAcctRec" type="CCAcctRec_Type"/>
+	<xsd:element name="CCAcctStmtMsgRqInfo" type="CCAcctStmtMsgRqInfo_Type"/>
+	<xsd:element name="CCAcctStmtRec" type="CCAcctStmtRec_Type"/>
+	<xsd:element name="CCAcctTrnMsgRqInfo" type="CCAcctTrnMsgRqInfo_Type"/>
+	<xsd:element name="CCAcctTrnRec" type="CCAcctTrnRec_Type"/>
+	<xsd:element name="CustSvcInfo" type="CustSvcInfo_Type"/>
+	<xsd:element name="CustSvcMsgRec" type="CustSvcMsgRec_Type"/>
+	<xsd:element name="CustSvcRec" type="CustSvcRec_Type"/>
+	<xsd:element name="CustSvcStatus" type="CustSvcStatus_Type"/>
+	<xsd:element name="CustSvcStatusCode" type="CustSvcStatusCode_Type"/>
+	<xsd:element name="DepAcctRec" type="DepAcctRec_Type"/>
+	<xsd:element name="DepAcctStmtMsgRqInfo" type="DepAcctStmtMsgRqInfo_Type"/>
+	<xsd:element name="DepAcctStmtRec" type="DepAcctStmtRec_Type"/>
+	<xsd:element name="DepAcctTrnMsgRqInfo" type="DepAcctTrnMsgRqInfo_Type"/>
+	<xsd:element name="DepAcctTrnRec" type="DepAcctTrnRec_Type"/>
+	<xsd:element name="IntRateInfo" type="IntRateInfo_Type"/>
+	<xsd:element name="IntRateMsgRqInfo" type="IntRateMsgRqInfo_Type"/>
+	<xsd:element name="LoanAcctRec" type="LoanAcctRec_Type"/>
+	<xsd:element name="LoanInfoCommon" type="LoanInfoCommon_Type"/>
+	<xsd:element name="LOCAcctRec" type="LOCAcctRec_Type"/>
+	<xsd:element name="MortAcctRec" type="MortAcctRec_Type"/>
+	<xsd:element name="SvcAcctId" type="SvcAcctId_Type"/>
+	<xsd:element name="SvcAcctInfo" type="SvcAcctInfo_Type"/>
+	<xsd:element name="SvcAcctMsgRec" type="SvcAcctMsgRec_Type"/>
+	<xsd:element name="SvcAcctMsgRqInfo" type="SvcAcctMsgRqInfo_Type"/>
+	<xsd:element name="SvcAcctRec" type="SvcAcctRec_Type"/>
+	<xsd:element name="SvcAcctStatus" type="SvcAcctStatus_Type"/>
+	<xsd:element name="SvcAcctStatusCode" type="SvcAcctStatusCode_Type"/>
+</xsd:schema>

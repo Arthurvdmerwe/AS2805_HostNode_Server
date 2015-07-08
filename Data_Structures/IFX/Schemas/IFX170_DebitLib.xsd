@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitAuthSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DebitSync.xsd"/>
+	<xsd:complexType name="DebitAuthInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitAuthType"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitAuthMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="DebitAuthAddRs"/>
+				<xsd:element ref="DebitAuthModRs"/>
+				<xsd:element ref="DebitAuthRevRs"/>
+				<xsd:element ref="DebitAuthStatusModRs"/>
+				<xsd:element ref="DebitAuthCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitAuthMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="DebitAuthAddRq"/>
+			<xsd:element ref="DebitAuthModRq"/>
+			<xsd:element ref="DebitAuthStatusModRq"/>
+			<xsd:element ref="DebitAuthCanRq"/>
+			<xsd:element ref="DebitAuthInqRq"/>
+			<xsd:element ref="DebitAuthAudRq"/>
+			<xsd:element ref="DebitAuthSyncRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="DebitAuthRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitAuthId"/>
+			<xsd:element ref="DebitAuthInfo"/>
+			<xsd:element ref="DebitAuthStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitAuthStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitStatusCode"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitAuthType"/>
+			<xsd:element ref="DebitType" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="DebitAuthId" minOccurs="0"/>
+			<xsd:element ref="TrnRqUID" minOccurs="0"/>
+			<xsd:element ref="ClientChgCode" minOccurs="0"/>
+			<xsd:element ref="NetworkTrnInfo" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitMsgRec_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="CustId" minOccurs="0"/>
+				<xsd:element ref="MsgRecDt" minOccurs="0"/>
+				<xsd:choice>
+					<xsd:element ref="DebitAddRs"/>
+					<xsd:element ref="DebitModRs"/>
+					<xsd:element ref="DebitRevRs"/>
+					<xsd:element ref="DebitStatusModRs"/>
+					<xsd:element ref="DebitCanRs"/>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="DebitAddRq"/>
+			<xsd:element ref="DebitModRq"/>
+			<xsd:element ref="DebitStatusModRq"/>
+			<xsd:element ref="DebitCanRq"/>
+			<xsd:element ref="DebitInqRq"/>
+			<xsd:element ref="DebitAudRq"/>
+			<xsd:element ref="DebitSyncRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="DebitRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitId"/>
+			<xsd:element ref="DebitInfo"/>
+			<xsd:element ref="DebitStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DebitStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DebitStatusCode"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DebitAuthId" type="DebitAuthId_Type"/>
+	<xsd:element name="DebitAuthInfo" type="DebitAuthInfo_Type"/>
+	<xsd:element name="DebitAuthMsgRec" type="DebitAuthMsgRec_Type"/>
+	<xsd:element name="DebitAuthMsgRqInfo" type="DebitAuthMsgRqInfo_Type"/>
+	<xsd:element name="DebitAuthRec" type="DebitAuthRec_Type"/>
+	<xsd:element name="DebitAuthStatus" type="DebitAuthStatus_Type"/>
+	<xsd:element name="DebitAuthType" type="DebitAuthType_Type"/>
+	<xsd:element name="DebitInfo" type="DebitInfo_Type"/>
+	<xsd:element name="DebitMsgRec" type="DebitMsgRec_Type"/>
+	<xsd:element name="DebitMsgRqInfo" type="DebitMsgRqInfo_Type"/>
+	<xsd:element name="DebitRec" type="DebitRec_Type"/>
+	<xsd:element name="DebitStatus" type="DebitStatus_Type"/>
+	<xsd:element name="DebitStatusCode" type="DebitStatusCode_Type"/>
+	<xsd:element name="DebitType" type="OpenEnum"/>
+</xsd:schema>

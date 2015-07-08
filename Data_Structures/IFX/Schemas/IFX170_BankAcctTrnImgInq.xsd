@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_AcctLib.xsd"/>
+	<xsd:complexType name="BankAcctTrnImgInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="DeliveryMedia" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="StopChkInfo"/>
+				<xsd:element ref="ChkNum"/>
+			</xsd:choice>
+			<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+			<xsd:element ref="SelRangeChkNum" minOccurs="0"/>
+			<xsd:element ref="SelRangeDt" minOccurs="0"/>
+			<xsd:element ref="TrnType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncAllItems" minOccurs="0"/>
+			<xsd:element ref="IncRefInfo" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="CustContact"/>
+				<xsd:element ref="ContactInfo"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankAcctTrnImgInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+				<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+				<xsd:element ref="DeliveryMedia" minOccurs="0"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="DepAcctId"/>
+					<xsd:element ref="CardAcctId"/>
+					<xsd:element ref="LoanAcctId"/>
+				</xsd:choice>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="StopChkInfo" maxOccurs="unbounded"/>
+					<xsd:element ref="ChkNum"/>
+				</xsd:choice>
+				<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+				<xsd:element ref="SelRangeChkNum" minOccurs="0"/>
+				<xsd:element ref="SelRangeDt" minOccurs="0"/>
+				<xsd:element ref="TrnType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="IncAllItems" minOccurs="0"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="CustContact"/>
+					<xsd:element ref="ContactInfo"/>
+				</xsd:choice>
+				<xsd:element ref="CSPRefId" minOccurs="0"/>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+				<xsd:element ref="BankAcctTrnImgRec" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BankAcctTrnImgInqRq" type="BankAcctTrnImgInqRq_Type"/>
+	<xsd:element name="BankAcctTrnImgInqRs" type="BankAcctTrnImgInqRs_Type"/>
+</xsd:schema>

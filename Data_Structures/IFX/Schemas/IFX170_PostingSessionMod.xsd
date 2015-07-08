@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PostingSessionLib.xsd"/>
+	<xsd:complexType name="PostingSessionModRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PostingSessionId"/>
+			<xsd:element ref="PostingSessionInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostingSessionModRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PostingSessionId" minOccurs="0"/>
+			<xsd:element ref="PostingSessionInfo" minOccurs="0"/>
+			<xsd:element ref="PostingSessionRec"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PostingSessionModRq" type="PostingSessionModRq_Type"/>
+	<xsd:element name="PostingSessionModRs" type="PostingSessionModRs_Type"/>
+</xsd:schema>

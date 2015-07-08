@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillerInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillerRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillStatusMod.xsd"/>
+	<xsd:complexType name="BillInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="BillType"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PresAcctId"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+			<xsd:element ref="BillSummAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="BillDt"/>
+			<xsd:element ref="OpenDt" minOccurs="0"/>
+			<xsd:element ref="CloseDt" minOccurs="0"/>
+			<xsd:element ref="PmtInst" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="NotifyReqd" minOccurs="0"/>
+			<xsd:element ref="ViewDtlPref" minOccurs="0"/>
+			<xsd:element ref="StmtImage" minOccurs="0"/>
+			<xsd:element ref="BillRefInfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="BillInqRq"/>
+				<xsd:element ref="BillStatusModRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillPmtStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtId" minOccurs="0"/>
+			<xsd:element ref="BillPmtStatusCode"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="BillId"/>
+			<xsd:element ref="BillInfo"/>
+			<xsd:element ref="BillStatus" minOccurs="0"/>
+			<xsd:element ref="BillPmtStatus" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="BillStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillerAcctIdInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="AcctFormat" minOccurs="0"/>
+			<xsd:element ref="AcctMask" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="AcctHelpMsg" minOccurs="0"/>
+			<xsd:element ref="AcctRestrictMsg" minOccurs="0"/>
+			<xsd:element ref="AcctValidateURL" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillerInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="Name"/>
+			<xsd:element ref="BillerContact" minOccurs="0"/>
+			<xsd:element ref="IndustId" minOccurs="0"/>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="SecretPrompt"/>
+				<xsd:element ref="CryptType"/>
+			</xsd:sequence>
+			<xsd:element ref="HistRetentionDays" minOccurs="0"/>
+			<xsd:element ref="CSPCustInfoReq" minOccurs="0"/>
+			<xsd:element ref="BillerPayInfo" minOccurs="0"/>
+			<xsd:element ref="LogoURL" minOccurs="0"/>
+			<xsd:element ref="Logo" minOccurs="0"/>
+			<xsd:element ref="BillerEnrollURL" minOccurs="0"/>
+			<xsd:element ref="BillerAcctIdInfo" minOccurs="0"/>
+			<xsd:element ref="DiscReqd" minOccurs="0"/>
+			<xsd:element ref="DiscId" minOccurs="0"/>
+			<xsd:element ref="DiscDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillerMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="BillerInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillerRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="BillerId" maxOccurs="unbounded"/>
+			<xsd:element ref="BillerInfo"/>
+			<xsd:element ref="BillerStatus" minOccurs="0"/>
+			<xsd:element ref="BSPReferTo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillerStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="BillerStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BillInfo" type="BillInfo_Type"/>
+	<xsd:element name="BillMsgRqInfo" type="BillMsgRqInfo_Type"/>
+	<xsd:element name="BillPmtStatus" type="BillPmtStatus_Type"/>
+	<xsd:element name="BillRec" type="BillRec_Type"/>
+	<xsd:element name="BillStatus" type="BillStatus_Type"/>
+	<xsd:element name="BillerAcctIdInfo" type="BillerAcctIdInfo_Type"/>
+	<xsd:element name="BillerInfo" type="BillerInfo_Type"/>
+	<xsd:element name="BillerMsgRqInfo" type="BillerMsgRqInfo_Type"/>
+	<xsd:element name="BillerRec" type="BillerRec_Type"/>
+	<xsd:element name="BillerStatus" type="BillerStatus_Type"/>
+</xsd:schema>

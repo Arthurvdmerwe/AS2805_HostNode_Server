@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_TerminalLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_DevLib.xsd"/>
+	<xsd:complexType name="MediaSvcRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="MediaAcctAdjAddRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjInqRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjAudRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjSyncRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjRevRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctInventoryInqRq" minOccurs="0"/>
+				<xsd:element ref="MediaAcctInventoryRevRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAddRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjModRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjInqRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjDelRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAudRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjStatusModRq" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAdviseRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAddRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjModRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjInqRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjDelRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAudRq" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAdviseRq" minOccurs="0"/>
+				<xsd:element ref="DevInqRq" minOccurs="0"/>
+				<xsd:element ref="DevAdviseRq" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="MediaSvcRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="MediaAcctAdjAddRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjInqRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjAudRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjSyncRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctAdjRevRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctInventoryInqRs" minOccurs="0"/>
+				<xsd:element ref="MediaAcctInventoryRevRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAddRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjModRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjInqRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjDelRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAudRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjStatusModRs" minOccurs="0"/>
+				<xsd:element ref="TerminalObjAdviseRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAddRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjModRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjInqRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjDelRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAudRs" minOccurs="0"/>
+				<xsd:element ref="TerminalSPObjAdviseRs" minOccurs="0"/>
+				<xsd:element ref="DevInqRs" minOccurs="0"/>
+				<xsd:element ref="DevAdviseRs" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:element name="MediaSvcRq" type="MediaSvcRq_Type"/>
+	<xsd:element name="MediaSvcRs" type="MediaSvcRs_Type"/>
+</xsd:schema>

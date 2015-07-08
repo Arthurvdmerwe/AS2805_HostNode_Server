@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepBkOrdAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepBkOrdAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DepBkOrdRev.xsd"/>
+	<xsd:complexType name="DepBkOrdInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepAcctId"/>
+			<xsd:element ref="Count" minOccurs="0"/>
+			<xsd:element ref="DepBkStyleId" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepBkOrdMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepBkOrdAddRq"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepBkOrdRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepBkOrdId"/>
+			<xsd:element ref="DepBkOrdInfo"/>
+			<xsd:element ref="DepBkOrdStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DepBkOrdStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepBkOrdStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DepBkOrdStatus" type="DepBkOrdStatus_Type"/>
+	<xsd:element name="DepBkOrdStatusCode" type="DepBkOrdStatusCode_Type"/>
+	<xsd:element name="DepBkOrdId" type="DepBkOrdId_Type"/>
+	<xsd:element name="DepBkOrdInfo" type="DepBkOrdInfo_Type"/>
+	<xsd:element name="DepBkOrdMsgRqInfo" type="DepBkOrdMsgRqInfo_Type"/>
+	<xsd:element name="DepBkOrdRec" type="DepBkOrdRec_Type"/>
+</xsd:schema>

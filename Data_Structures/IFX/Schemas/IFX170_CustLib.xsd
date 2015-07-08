@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustIdInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustDiscInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustDiscStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustAuthMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustAuthRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPswdMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_DiscInq.xsd"/>
+	
+	<xsd:complexType name="CustRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId"/>
+			<xsd:element ref="CustInfo" minOccurs="0"/>
+			<xsd:element ref="CustStatus"/>
+			<xsd:element ref="UpDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="ResolvePendingDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CustAddRs"/>
+				<xsd:element ref="CustModRs"/>
+				<xsd:element ref="CustStatusModRs"/>
+				<xsd:element ref="CustDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustAuthMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="CustAuthModRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustAuthMsgRqInfo" type="CustAuthMsgRqInfo_Type"/>
+	<xsd:element name="CustMsgRec" type="CustMsgRec_Type"/>
+	
+	<xsd:element name="CustRec" type="CustRec_Type"/>
+	<xsd:element name="CustStatus" type="CustStatus_Type"/>
+	<xsd:element name="CustStatusCode" type="CustStatusCode_Type"/>
+</xsd:schema>

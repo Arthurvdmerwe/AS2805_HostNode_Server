@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecXferSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_XferStatusMod.xsd"/>
+	<xsd:complexType name="XferInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctIdFrom"/>
+				<xsd:element ref="CardAcctIdFrom"/>
+				<xsd:element ref="LoanAcctIdFrom"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="DepAcctIdTo"/>
+				<xsd:element ref="CardAcctIdTo"/>
+				<xsd:element ref="LoanAcctIdTo"/>
+			</xsd:choice>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="Category" minOccurs="0"/>
+			<xsd:element ref="ImmediateXfer" minOccurs="0"/>
+			<xsd:element ref="ForExRateInfo" minOccurs="0"/>
+			<xsd:element ref="ForExDealId" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XferMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="XferAddRs"/>
+				<xsd:element ref="XferModRs"/>
+				<xsd:element ref="XferStatusModRs"/>
+				<xsd:element ref="XferCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XferMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="XferAddRq"/>
+				<xsd:element ref="XferModRq"/>
+				<xsd:element ref="XferStatusModRq"/>
+				<xsd:element ref="XferCanRq"/>
+				<xsd:element ref="XferInqRq"/>
+				<xsd:element ref="XferAudRq"/>
+				<xsd:element ref="XferSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XferRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="XferId"/>
+			<xsd:element ref="RecXferId" minOccurs="0"/>
+			<xsd:element ref="RecXferMod" minOccurs="0"/>
+			<xsd:element ref="XferInfo"/>
+			<xsd:element ref="XferStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XferStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="XferStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecXferMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="RecXferAddRs"/>
+				<xsd:element ref="RecXferModRs"/>
+				<xsd:element ref="RecXferCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecXferMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="RecXferAddRq"/>
+				<xsd:element ref="RecXferModRq"/>
+				<xsd:element ref="RecXferCanRq"/>
+				<xsd:element ref="RecXferInqRq"/>
+				<xsd:element ref="RecXferAudRq"/>
+				<xsd:element ref="RecXferSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecXferRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="RecXferId"/>
+			<xsd:element ref="XferInfo"/>
+			<xsd:element ref="RecModelInfo"/>
+			<xsd:element ref="RemainingInsts"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RecXferMsgRqInfo" type="RecXferMsgRqInfo_Type"/>
+	<xsd:element name="RecXferMsgRec" type="RecXferMsgRec_Type"/>
+	<xsd:element name="RecXferRec" type="RecXferRec_Type"/>
+	<xsd:element name="XferInfo" type="XferInfo_Type"/>
+	<xsd:element name="XferMsgRec" type="XferMsgRec_Type"/>
+	<xsd:element name="XferMsgRqInfo" type="XferMsgRqInfo_Type"/>
+	<xsd:element name="XferRec" type="XferRec_Type"/>
+	<xsd:element name="XferStatus" type="XferStatus_Type"/>
+	<xsd:element name="XferStatusCode" type="XferStatusCode_Type"/>
+</xsd:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="RemitAddRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="RemitInfo"/>
+			<xsd:element ref="DupChkOverride" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemitAddRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="EffDt" minOccurs="0"/>
+				<xsd:element ref="RemitInfo" minOccurs="0"/>
+				<xsd:element ref="DupChkOverride" minOccurs="0"/>
+				<xsd:element ref="RemitRec"/>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RemitAddRq" type="RemitAddRq_Type"/>
+	<xsd:element name="RemitAddRs" type="RemitAddRs_Type"/>
+</xsd:schema>

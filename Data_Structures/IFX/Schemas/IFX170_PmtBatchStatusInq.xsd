@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="PmtBatchStatusInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId"/>
+			<xsd:element ref="PayorAcctId" minOccurs="0"/>
+			<xsd:element ref="PayorAcctName" minOccurs="0"/>
+			<xsd:element ref="PmtBatchId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PmtRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SvcRqUID" minOccurs="0"/>
+			<xsd:element ref="PmtRemitRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CustPayeeName" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="PmtBatchStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PmtTrnStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtBatchStatusInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="PayorAcctId" minOccurs="0"/>
+				<xsd:element ref="PayorAcctName" minOccurs="0"/>
+				<xsd:element ref="PmtBatchId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PmtRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SvcRqUID" minOccurs="0"/>
+				<xsd:element ref="PmtRemitRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="CustPayeeName" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="PmtBatchStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="PmtTrnStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:choice>
+				<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+				<xsd:element ref="PmtBatchStatusRec" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="CSPRefId" minOccurs="0"/>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PmtBatchStatusInqRq" type="PmtBatchStatusInqRq_Type"/>
+	<xsd:element name="PmtBatchStatusInqRs" type="PmtBatchStatusInqRs_Type"/>
+</xsd:schema>

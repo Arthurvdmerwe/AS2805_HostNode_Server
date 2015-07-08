@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CustPayeeLib.xsd"/>
+	<xsd:complexType name="CustPayeeInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PayeeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Name" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Nickname" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncToken" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustPayeeInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+				<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+				<xsd:element ref="CustPayeeId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PayeeType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Name" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Nickname" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="IncToken" minOccurs="0"/>
+				<xsd:element ref="CustPayeeRec" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Token" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustPayeeInqRq" type="CustPayeeInqRq_Type"/>
+	<xsd:element name="CustPayeeInqRs" type="CustPayeeInqRs_Type"/>
+</xsd:schema>

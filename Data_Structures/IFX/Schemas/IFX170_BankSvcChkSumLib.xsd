@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_BankSvcChkSumSync.xsd"/>
+	<xsd:complexType name="BankSvcChkSumInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="RefInfo"/>
+			<xsd:element ref="MsgType"/>
+			<xsd:element ref="Count"/>
+			<xsd:element ref="BankSvcChkSum" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankSvcChkSumMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="BankSvcChkSumAddRs"/>
+				<xsd:element ref="BankSvcChkSumModRs"/>
+				<xsd:element ref="BankSvcChkSumStatusModRs"/>
+				<xsd:element ref="BankSvcChkSumDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankSvcChkSumRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankSvcChkSumId"/>
+			<xsd:element ref="BankSvcChkSumInfo"/>
+			<xsd:element ref="BankSvcChkSumStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankSvcChkSumStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankSvcChkSumStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BankSvcChkSum_Type">
+		<xsd:sequence>
+			<xsd:element ref="BankSvcChkSumType"/>
+			<xsd:element ref="BankSvcChkSumValue"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BankSvcChkSumType" type="OpenEnum"/>
+	<xsd:element name="BankSvcChkSumValue" type="Decimal"/>
+	<xsd:element name="BankSvcChkSumMsgRec" type="BankSvcChkSumMsgRec_Type"/>
+	<xsd:element name="BankSvcChkSumRec" type="BankSvcChkSumRec_Type"/>
+	<xsd:element name="BankSvcChkSumStatus" type="BankSvcChkSumStatus_Type"/>
+	<xsd:element name="BankSvcChkSumStatusCode" type="OpenEnum"/>
+	<xsd:element name="BankSvcChkSumId" type="Identifier"/>
+	<xsd:element name="BankSvcChkSumInfo" type="BankSvcChkSumInfo_Type"/>
+	<xsd:element name="BankSvcChkSum" type="BankSvcChkSum_Type"/>
+</xsd:schema>

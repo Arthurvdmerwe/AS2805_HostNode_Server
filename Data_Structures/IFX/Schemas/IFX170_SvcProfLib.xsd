@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcProfInq.xsd"/>
+	<xsd:complexType name="BankSvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="RevOptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CustBankPrefSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StopChkProf" minOccurs="0"/>
+			<xsd:element ref="XferProf" minOccurs="0"/>
+			<xsd:element ref="InterXferProf" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StopChkProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PrcSched" minOccurs="0"/>
+			<xsd:element ref="Fee" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecXferProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="Freq" maxOccurs="unbounded"/>
+			<xsd:element ref="ModPendingType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InterXferProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="XferProf" minOccurs="0"/>
+			<xsd:element ref="DomXferFeeCurAmt" minOccurs="0"/>
+			<xsd:element ref="IntlXferFeeCurAmt" minOccurs="0"/>
+			<xsd:element ref="USA.ACHProf" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XferProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PrcSched" minOccurs="0"/>
+			<xsd:element ref="RecXferProf" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BaseSvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SignonInfo"/>
+			<xsd:element ref="EnrollProf" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EnrollProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="WebEnrollURL" minOccurs="0"/>
+			<xsd:element ref="EnrollDesc" minOccurs="0"/>
+			<xsd:element ref="CryptType" minOccurs="0"/>
+			<xsd:element ref="SecretPrompt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CustNameReqd" minOccurs="0"/>
+			<xsd:element ref="PostAddrReqd" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MediaSvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaySvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PrcSched" minOccurs="0"/>
+			<xsd:element ref="PmtModel"/>
+			<xsd:element ref="DfltDaysToPay"/>
+			<xsd:element ref="DfltXferDaysToPay"/>
+			<xsd:element ref="DaysWith"/>
+			<xsd:element ref="HistRetentionDays"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ModPendingType"/>
+			<xsd:element ref="RecPmtProf" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PresSvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="PrcSched" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RootSvcProfInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcCore"/>
+			<xsd:element ref="MsgSupt" maxOccurs="unbounded"/>
+			<xsd:element ref="OptSupt" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="PmtModel_Type">
+		<xsd:restriction base="ClosedEnum"/>
+	</xsd:simpleType>
+	<xsd:complexType name="RecPmtProf_Type">
+		<xsd:sequence>
+			<xsd:element ref="Freq" maxOccurs="unbounded"/>
+			<xsd:element ref="ModPendingType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RecPmtProf" type="RecPmtProf_Type"/>
+	<xsd:element name="PmtModel" type="PmtModel_Type"/>
+	<xsd:element name="PresSvcProfInfo" type="PresSvcProfInfo_Type"/>
+	<xsd:element name="RootSvcProfInfo" type="RootSvcProfInfo_Type"/>
+	<xsd:element name="PaySvcProfInfo" type="PaySvcProfInfo_Type"/>
+	<xsd:element name="MediaSvcProfInfo" type="MediaSvcProfInfo_Type"/>
+	<xsd:element name="EnrollProf" type="EnrollProf_Type"/>
+	<xsd:element name="BaseSvcProfInfo" type="BaseSvcProfInfo_Type"/>
+	<xsd:element name="RecXferProf" type="RecXferProf_Type"/>
+	<xsd:element name="XferProf" type="XferProf_Type"/>
+	<xsd:element name="InterXferProf" type="InterXferProf_Type"/>
+	<xsd:element name="StopChkProf" type="StopChkProf_Type"/>
+	<xsd:element name="BankSvcProfInfo" type="BankSvcProfInfo_Type"/>
+</xsd:schema>

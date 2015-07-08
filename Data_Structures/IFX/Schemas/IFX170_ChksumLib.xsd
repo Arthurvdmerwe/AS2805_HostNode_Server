@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumSync.xsd"/>
+	<xsd:complexType name="ChksumInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="RefInfo" minOccurs="0"/>
+			<xsd:element ref="MsgType"/>
+			<xsd:element ref="Count"/>
+			<xsd:element ref="Chksum" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChksumMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="ChksumAddRs"/>
+				<xsd:element ref="ChksumModRs"/>
+				<xsd:element ref="ChksumStatusModRs"/>
+				<xsd:element ref="ChksumDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChksumRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChksumId"/>
+			<xsd:element ref="ChksumInfo"/>
+			<xsd:element ref="ChksumStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChksumStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChksumStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ChksumMsgRec" type="ChksumMsgRec_Type"/>
+	<xsd:element name="ChksumRec" type="ChksumRec_Type"/>
+	<xsd:element name="ChksumStatus" type="ChksumStatus_Type"/>
+	<xsd:element name="ChksumStatusCode" type="ChksumStatusCode_Type"/>
+	<xsd:element name="ChksumId" type="ChksumId_Type"/>
+	<xsd:element name="ChksumInfo" type="ChksumInfo_Type"/>
+</xsd:schema>

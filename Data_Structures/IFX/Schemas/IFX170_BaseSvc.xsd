@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_SvcProfLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_HolInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_AcctLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_SecObjLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PartyAcctLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionLib.xsd"/>
+	<xsd:complexType name="BaseSvcRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="SvcProfInqRq" minOccurs="0"/>
+				<xsd:element ref="HolInqRq" minOccurs="0"/>
+				<xsd:element ref="CustAddRq" minOccurs="0"/>
+				<xsd:element ref="CustModRq" minOccurs="0"/>
+				<xsd:element ref="CustPswdModRq" minOccurs="0"/>
+				<xsd:element ref="CustAuthModRq" minOccurs="0"/>
+				<xsd:element ref="CustAuthRevRq" minOccurs="0"/>
+				<xsd:element ref="CustStatusModRq" minOccurs="0"/>
+				<xsd:element ref="CustDelRq" minOccurs="0"/>
+				<xsd:element ref="CustInqRq" minOccurs="0"/>
+				<xsd:element ref="CustIdInqRq" minOccurs="0"/>
+				<xsd:element ref="CustAudRq" minOccurs="0"/>
+				<xsd:element ref="CustSyncRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcAddRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcModRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcStatusModRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcDelRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcAudRq" minOccurs="0"/>
+				<xsd:element ref="CustSvcSyncRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctAddRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctModRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctStatusModRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctIdModRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctDelRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctInqRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctAudRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctSyncRq" minOccurs="0"/>
+				<xsd:element ref="SvcAcctRevRq" minOccurs="0"/>
+				<xsd:element ref="DiscInqRq" minOccurs="0"/>
+				<xsd:element ref="CustDiscStatusModRq" minOccurs="0"/>
+				<xsd:element ref="CustDiscInqRq" minOccurs="0"/>
+				<xsd:element ref="SecObjAddRq" minOccurs="0"/>
+				<xsd:element ref="SecObjModRq" minOccurs="0"/>
+				<xsd:element ref="SecObjInqRq" minOccurs="0"/>
+				<xsd:element ref="SecObjDelRq" minOccurs="0"/>
+				<xsd:element ref="SecObjAdviseRq" minOccurs="0"/>
+				<xsd:element ref="SecObjSyncRq" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelAddRq" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelDelRq" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelInqRq" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelModRq" minOccurs="0"/>
+				<xsd:element ref="EMVCardAdviseRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefAddRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefModRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefInqRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefDelRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefAudRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefSyncRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefRevRq" minOccurs="0"/>
+				<xsd:element ref="CardPrefStatusModRq" minOccurs="0"/>
+				<xsd:element ref="PostingSessionAddRq" minOccurs="0"/>
+				<xsd:element ref="PostingSessionModRq" minOccurs="0"/>
+				<xsd:element ref="PostingSessionInqRq" minOccurs="0"/>
+				<xsd:element ref="PostingSessionAudRq" minOccurs="0"/>
+				<xsd:element ref="PostingSessionStatusModRq" minOccurs="0"/>
+				<xsd:element ref="SessionTotalsInqRq" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="BaseSvcRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="SvcProfInqRs" minOccurs="0"/>
+				<xsd:element ref="HolInqRs" minOccurs="0"/>
+				<xsd:element ref="CustAddRs" minOccurs="0"/>
+				<xsd:element ref="CustModRs" minOccurs="0"/>
+				<xsd:element ref="CustPswdModRs" minOccurs="0"/>
+				<xsd:element ref="CustAuthModRs" minOccurs="0"/>
+				<xsd:element ref="CustAuthRevRs" minOccurs="0"/>
+				<xsd:element ref="CustStatusModRs" minOccurs="0"/>
+				<xsd:element ref="CustDelRs" minOccurs="0"/>
+				<xsd:element ref="CustInqRs" minOccurs="0"/>
+				<xsd:element ref="CustIdInqRs" minOccurs="0"/>
+				<xsd:element ref="CustAudRs" minOccurs="0"/>
+				<xsd:element ref="CustSyncRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcAddRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcModRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcStatusModRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcDelRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcAudRs" minOccurs="0"/>
+				<xsd:element ref="CustSvcSyncRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctAddRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctModRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctStatusModRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctIdModRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctDelRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctInqRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctAudRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctSyncRs" minOccurs="0"/>
+				<xsd:element ref="SvcAcctRevRs" minOccurs="0"/>
+				<xsd:element ref="DiscInqRs" minOccurs="0"/>
+				<xsd:element ref="CustDiscStatusModRs" minOccurs="0"/>
+				<xsd:element ref="CustDiscInqRs" minOccurs="0"/>
+				<xsd:element ref="SecObjAddRs" minOccurs="0"/>
+				<xsd:element ref="SecObjModRs" minOccurs="0"/>
+				<xsd:element ref="SecObjInqRs" minOccurs="0"/>
+				<xsd:element ref="SecObjDelRs" minOccurs="0"/>
+				<xsd:element ref="SecObjAdviseRs" minOccurs="0"/>
+				<xsd:element ref="SecObjSyncRs" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelAddRs" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelDelRs" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelInqRs" minOccurs="0"/>
+				<xsd:element ref="PartyAcctRelModRs" minOccurs="0"/>
+				<xsd:element ref="EMVCardAdviseRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefAddRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefModRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefInqRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefDelRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefAudRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefSyncRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefRevRs" minOccurs="0"/>
+				<xsd:element ref="CardPrefStatusModRs" minOccurs="0"/>
+				<xsd:element ref="PostingSessionAddRs" minOccurs="0"/>
+				<xsd:element ref="PostingSessionModRs" minOccurs="0"/>
+				<xsd:element ref="PostingSessionInqRs" minOccurs="0"/>
+				<xsd:element ref="PostingSessionAudRs" minOccurs="0"/>
+				<xsd:element ref="PostingSessionStatusModRs" minOccurs="0"/>
+				<xsd:element ref="SessionTotalsInqRs" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:element name="BaseSvcRq" type="BaseSvcRq_Type"/>
+	<xsd:element name="BaseSvcRs" type="BaseSvcRs_Type"/>
+</xsd:schema>

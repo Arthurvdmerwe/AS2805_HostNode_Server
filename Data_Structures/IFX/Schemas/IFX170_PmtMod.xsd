@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="PmtModRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PmtId"/>
+			<xsd:element ref="PmtInfo"/>
+			<xsd:element ref="UpPayee" minOccurs="0"/>
+			<xsd:element ref="DupChkOverride" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtModRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="PmtId" minOccurs="0"/>
+				<xsd:element ref="PmtInfo" minOccurs="0"/>
+				<xsd:element ref="UpPayee" minOccurs="0"/>
+				<xsd:element ref="DupChkOverride" minOccurs="0"/>
+				<xsd:element ref="PmtRec"/>
+				<xsd:element ref="CSPRefId" minOccurs="0"/>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PmtModRq" type="PmtModRq_Type"/>
+	<xsd:element name="PmtModRs" type="PmtModRs_Type"/>
+</xsd:schema>

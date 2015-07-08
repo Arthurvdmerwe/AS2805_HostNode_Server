@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CreditLib.xsd"/>
+	<xsd:complexType name="CreditInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn"/>
+			<xsd:element ref="CreditId"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId" minOccurs="0"/>
+				<xsd:element ref="CardAcctId" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element ref="ClientChgCode"/>
+			<xsd:element ref="SelRangeDt" minOccurs="0"/>
+			<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+			<xsd:element ref="IncToken"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+				<xsd:element ref="RecCtrlOut"/>
+				<xsd:element ref="CreditId"/>
+				<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="DepAcctId" minOccurs="0"/>
+					<xsd:element ref="CardAcctId" minOccurs="0"/>
+				</xsd:choice>
+				<xsd:element ref="ClientChgCode"/>
+				<xsd:element ref="SelRangeDt" minOccurs="0"/>
+				<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+				<xsd:element ref="Token"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CreditInqRq" type="CreditInqRq_Type"/>
+	<xsd:element name="CreditInqRs" type="CreditInqRs_Type"/>
+</xsd:schema>

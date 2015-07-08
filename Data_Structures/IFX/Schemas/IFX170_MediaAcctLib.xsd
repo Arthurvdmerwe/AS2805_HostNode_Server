@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctAdjAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctAdjAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctAdjInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctAdjRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctAdjSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctInventoryInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaAcctInventoryRev.xsd"/>
+	<xsd:complexType name="MediaAcctAdjInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="MediaAcctId"/>
+			<xsd:element ref="MediaTrnType" minOccurs="0"/>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:element ref="TrnAuthId" minOccurs="0"/>
+			<xsd:element ref="TrnRqUID" minOccurs="0"/>
+			<xsd:element ref="RelatedCreditId" minOccurs="0"/>
+			<xsd:element ref="MediaItem" maxOccurs="unbounded"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MediaAcctAdjMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:element ref="MediaAcctAdjAddRs"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MediaAcctAdjMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="MediaAcctAdjAddRq"/>
+				<xsd:element ref="MediaAcctAdjInqRq"/>
+				<xsd:element ref="MediaAcctAdjAudRq"/>
+				<xsd:element ref="MediaAcctAdjSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MediaAcctAdjRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="MediaAcctAdjId"/>
+			<xsd:element ref="MediaAcctAdjInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MediaAcctInventoryMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="MediaAcctInventoryInqRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MediaAcctInventoryMsgRqInfo" type="MediaAcctInventoryMsgRqInfo_Type"/>
+	<xsd:element name="MediaAcctAdjMsgRec" type="MediaAcctAdjMsgRec_Type"/>
+	<xsd:element name="MediaAcctAdjMsgRqInfo" type="MediaAcctAdjMsgRqInfo_Type"/>
+	<xsd:element name="MediaAcctAdjRec" type="MediaAcctAdjRec_Type"/>
+	<xsd:element name="MediaAcctAdjId" type="MediaAcctAdjId_Type"/>
+	<xsd:element name="MediaAcctAdjInfo" type="MediaAcctAdjInfo_Type"/>
+</xsd:schema>

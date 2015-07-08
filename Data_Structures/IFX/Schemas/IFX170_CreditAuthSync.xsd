@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CreditLib.xsd"/>
+	<xsd:complexType name="CreditAuthSyncRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="Token"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthSyncRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+				<xsd:choice minOccurs="0">
+					<xsd:element ref="DepAcctId"/>
+					<xsd:element ref="CardAcctId"/>
+				</xsd:choice>
+				<xsd:element ref="Token" minOccurs="0"/>
+				<xsd:element ref="NewToken"/>
+				<xsd:element ref="CreditAuthMsgRec" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CreditAuthSyncRq" type="CreditAuthSyncRq_Type"/>
+	<xsd:element name="CreditAuthSyncRs" type="CreditAuthSyncRs_Type"/>
+</xsd:schema>

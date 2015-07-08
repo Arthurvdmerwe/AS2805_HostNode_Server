@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="PmtEnclModRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PmtEnclId"/>
+			<xsd:element ref="PmtEnclInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclModRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="PmtEnclId" minOccurs="0"/>
+			<xsd:element ref="PmtEnclInfo" minOccurs="0"/>
+			<xsd:element ref="PmtEnclRec"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PmtEnclModRq" type="PmtEnclModRq_Type"/>
+	<xsd:element name="PmtEnclModRs" type="PmtEnclModRs_Type"/>
+</xsd:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CustPayeeLib.xsd"/>
+	<xsd:complexType name="CustPayeeAddRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="CustPayeeInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustPayeeAddRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="CustPayeeInfo" minOccurs="0"/>
+				<xsd:element ref="CustPayeeRec"/>
+				<xsd:element ref="CSPRefId" minOccurs="0"/>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustPayeeAddRq" type="CustPayeeAddRq_Type"/>
+	<xsd:element name="CustPayeeAddRs" type="CustPayeeAddRs_Type"/>
+</xsd:schema>

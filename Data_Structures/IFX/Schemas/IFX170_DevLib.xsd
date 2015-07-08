@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_DevAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_DevInq.xsd"/>
+	<xsd:complexType name="DevAppComponent_Type">
+		<xsd:sequence>
+			<xsd:element ref="Name"/>
+			<xsd:element ref="Version" minOccurs="0"/>
+			<xsd:element ref="DevHealthLevel" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevCdmBin_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCdmBinNum"/>
+			<xsd:element ref="DevCdmBinType"/>
+			<xsd:element ref="DevCdmBinStatus"/>
+			<xsd:element ref="DevCdmBinMedia"/>
+			<xsd:element ref="DevCdmBinCurCode" minOccurs="0"/>
+			<xsd:element ref="DevCdmBinDenomination" minOccurs="0"/>
+			<xsd:element ref="DevCdmBinCount" minOccurs="0"/>
+			<xsd:element ref="DevCdmBinMaxCount" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevCdmPosition_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCdmPositionLocation"/>
+			<xsd:element ref="DevCdmShutter"/>
+			<xsd:element ref="DevCdmPositionStatus"/>
+			<xsd:element ref="DevCdmTransport"/>
+			<xsd:element ref="DevCdmTransportItems"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevCimBin_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCimBinNum"/>
+			<xsd:element ref="DevCimBinType"/>
+			<xsd:element ref="DevCimBinStatus"/>
+			<xsd:element ref="DevCimBinCurCode" minOccurs="0"/>
+			<xsd:element ref="DevCimBinDenomination" minOccurs="0"/>
+			<xsd:element ref="DevCimBinCount" minOccurs="0"/>
+			<xsd:element ref="DevCimBinMaxCount" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevCimPosition_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCimPositionLocation"/>
+			<xsd:element ref="DevCimShutter"/>
+			<xsd:element ref="DevCimPositionStatus"/>
+			<xsd:element ref="DevCimTransport"/>
+			<xsd:element ref="DevCimTransportItems"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailAlm_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevAlmType"/>
+			<xsd:element ref="DevAlmOperation" minOccurs="0"/>
+			<xsd:element ref="DevAlmAlarm"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailApp_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevAppOperation" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DevAppNormalOperation"/>
+			<xsd:element ref="DevAppComponent" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailCam_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCamType"/>
+			<xsd:element ref="DevCamOperation" minOccurs="0"/>
+			<xsd:element ref="DevCamStatusArea"/>
+			<xsd:element ref="DevCamStatusMedia" minOccurs="0"/>
+			<xsd:element ref="DevCamStatusState" minOccurs="0"/>
+			<xsd:element ref="DevCamStatusPictures" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailCdm_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCdmType"/>
+			<xsd:element ref="DevCdmOperation" minOccurs="0"/>
+			<xsd:element ref="DevCdmSafeDoor"/>
+			<xsd:element ref="DevCdmCashUnits"/>
+			<xsd:element ref="DevCdmIntermediateStacker"/>
+			<xsd:element ref="DevCdmPosition"/>
+			<xsd:element ref="DevCdmBin" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailChk_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevChkType"/>
+			<xsd:element ref="DevChkOperation" minOccurs="0"/>
+			<xsd:element ref="DevChkImageEnabled" minOccurs="0"/>
+			<xsd:element ref="DevChkMedia"/>
+			<xsd:element ref="DevChkInk"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailCim_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevCimType"/>
+			<xsd:element ref="DevCimOperation" minOccurs="0"/>
+			<xsd:element ref="DevCimSafeDoor"/>
+			<xsd:element ref="DevCimCashUnits"/>
+			<xsd:element ref="DevCimIntermediateStacker"/>
+			<xsd:element ref="DevCimStackerItems"/>
+			<xsd:element ref="DevCimNoteReader"/>
+			<xsd:element ref="DevCimDropBox"/>
+			<xsd:element ref="DevCimPosition"/>
+			<xsd:element ref="DevCimBin" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailDep_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevDepType"/>
+			<xsd:element ref="DevDepOperation"/>
+			<xsd:element ref="DevDepTransport"/>
+			<xsd:element ref="DevDepContainer"/>
+			<xsd:element ref="DevDepEnvelopeSupply"/>
+			<xsd:element ref="DevDepEnvelopeDispenser"/>
+			<xsd:element ref="DevDepPrinter"/>
+			<xsd:element ref="DevDepToner"/>
+			<xsd:element ref="DevDepShutter"/>
+			<xsd:element ref="DevDepNumOfDeposits"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailIdc_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevIdcType"/>
+			<xsd:element ref="DevIdcOperation" minOccurs="0"/>
+			<xsd:element ref="DevIdcMedia"/>
+			<xsd:element ref="DevIdcRetainBin"/>
+			<xsd:element ref="DevIdcCards" minOccurs="0"/>
+			<xsd:element ref="DevIdcRetainedCard" minOccurs="0"/>
+			<xsd:element ref="DevIdcSecurity" minOccurs="0"/>
+			<xsd:element ref="DevIdcChipPower" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailPIN_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevPINType"/>
+			<xsd:element ref="DevPINOperation" minOccurs="0"/>
+			<xsd:element ref="DevPINEncStat"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailPtr_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevPtrType"/>
+			<xsd:element ref="DevPtrOperation" minOccurs="0"/>
+			<xsd:element ref="DevPtrMedia"/>
+			<xsd:element ref="DevPtrRetractBin" minOccurs="0"/>
+			<xsd:element ref="DevPtrSupply" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DevPtrInk" minOccurs="0"/>
+			<xsd:element ref="DevPtrToner" minOccurs="0"/>
+			<xsd:element ref="DevPtrLamp" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailSiu_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuType"/>
+			<xsd:element ref="DevSiuOperation" minOccurs="0"/>
+			<xsd:element ref="DevSiuSensorStatus" minOccurs="0"/>
+			<xsd:element ref="DevSiuDoorStatus" minOccurs="0"/>
+			<xsd:element ref="DevSiuIndicatorStatus" minOccurs="0"/>
+			<xsd:element ref="DevSiuAuxiliaryStatus" minOccurs="0"/>
+			<xsd:element ref="DevSiuGuidelightStatus" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailTtu_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevTtuType"/>
+			<xsd:element ref="DevTtuOperation" minOccurs="0"/>
+			<xsd:element ref="DevTtuKbd"/>
+			<xsd:element ref="DevTtuKbdLock"/>
+			<xsd:element ref="DevTtuLed" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetailVdm_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevVdmOperation" minOccurs="0"/>
+			<xsd:element ref="DevVdmServiceState" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevDetail_Type">
+		<xsd:choice>
+			<xsd:element ref="DevDetailIdc"/>
+			<xsd:element ref="DevDetailPtr"/>
+			<xsd:element ref="DevDetailCdm"/>
+			<xsd:element ref="DevDetailPIN"/>
+			<xsd:element ref="DevDetailChk"/>
+			<xsd:element ref="DevDetailDep"/>
+			<xsd:element ref="DevDetailTtu"/>
+			<xsd:element ref="DevDetailSiu"/>
+			<xsd:element ref="DevDetailVdm"/>
+			<xsd:element ref="DevDetailCam"/>
+			<xsd:element ref="DevDetailAlm"/>
+			<xsd:element ref="DevDetailCim"/>
+			<xsd:element ref="DevDetailApp"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="DevIdcRetainedCard_Type">
+		<xsd:sequence>
+			<xsd:element ref="CardMagData"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevName" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevPlatformData_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevPlatformSource" minOccurs="0"/>
+			<xsd:element ref="DevPlatformXfs"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevPlatformXfs_Type">
+		<xsd:sequence>
+			<xsd:element ref="PlatformXfsRequestId" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsTimestamp" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsEventId" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsLogicalName" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsPhysicalName" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsWkstName" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsState" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsAppId" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsAction" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsDesc" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsCmdCode" minOccurs="0"/>
+			<xsd:element ref="PlatformXfsCmdHResult" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevPtrSupply_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevPtrSupplyLocation" minOccurs="0"/>
+			<xsd:element ref="DevPtrSupplyLevel"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevId"/>
+			<xsd:element ref="DevInfo"/>
+			<xsd:element ref="DevStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuAuxiliaryStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuVolume"/>
+			<xsd:element ref="DevSiuUps"/>
+			<xsd:element ref="DevSiuRemoteStatus"/>
+			<xsd:element ref="DevSiuAudibleAlarm"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuDoorStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuCabinet"/>
+			<xsd:element ref="DevSiuSafe"/>
+			<xsd:element ref="DevSiuVandalShield"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuGuidelightStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuIdcGuidelight"/>
+			<xsd:element ref="DevSiuCdmGuidelight"/>
+			<xsd:element ref="DevSiuCoinOutGuidelight"/>
+			<xsd:element ref="DevSiuReceiptGuidelight"/>
+			<xsd:element ref="DevSiuPassbookGuidelight"/>
+			<xsd:element ref="DevSiuDepGuidelight"/>
+			<xsd:element ref="DevSiuChkGuidelight"/>
+			<xsd:element ref="DevSiuCimGuidelight"/>
+			<xsd:element ref="DevSiuDocumentGuidelight"/>
+			<xsd:element ref="DevSiuCoinInGuidelight"/>
+			<xsd:element ref="DevSiuScannerGuidelight"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuIndicatorStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuOpenClose"/>
+			<xsd:element ref="DevSiuFasciaLight"/>
+			<xsd:element ref="DevSiuAudio"/>
+			<xsd:element ref="DevSiuHeating"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuRemoteStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuGreenLed"/>
+			<xsd:element ref="DevSiuRedLed"/>
+			<xsd:element ref="DevSiuAmberLed"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuSensorStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuOperatorSwitch" minOccurs="0"/>
+			<xsd:element ref="DevSiuTamper"/>
+			<xsd:element ref="DevSiuSeismic"/>
+			<xsd:element ref="DevSiuHeat"/>
+			<xsd:element ref="DevSiuProximity"/>
+			<xsd:element ref="DevSiuAmbientLight"/>
+			<xsd:element ref="DevSiuEnhancedAudio" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevSiuType_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevSiuSensors"/>
+			<xsd:element ref="DevSiuDoors"/>
+			<xsd:element ref="DevSiuIndicators"/>
+			<xsd:element ref="DevSiuGuidelights"/>
+			<xsd:element ref="DevSiuAuxiliary"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="DevStatusCode"/>
+			<xsd:element ref="DevDetail"/>
+			<xsd:element ref="DevPlatformData" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DevAlmAlarm" type="ClosedEnum"/>
+	<xsd:element name="DevAlmOperation" type="OpenEnum"/>
+	<xsd:element name="DevAlmType" type="OpenEnum"/>
+	<xsd:element name="DevAppComponent" type="DevAppComponent_Type"/>
+	<xsd:element name="DevAppNormalOperation" type="Boolean"/>
+	<xsd:element name="DevAppOperation" type="OpenEnum"/>
+	<xsd:element name="DevCamOperation" type="OpenEnum"/>
+	<xsd:element name="DevCamStatusArea" type="OpenEnum"/>
+	<xsd:element name="DevCamStatusMedia" type="ClosedEnum"/>
+	<xsd:element name="DevCamStatusPictures" type="Long"/>
+	<xsd:element name="DevCamStatusState" type="ClosedEnum"/>
+	<xsd:element name="DevCamType" type="OpenEnum"/>
+	<xsd:element name="DevCdmBin" type="DevCdmBin_Type"/>
+	<xsd:element name="DevCdmBinCount" type="Long"/>
+	<xsd:element name="DevCdmBinCurCode" type="CurCode_Type"/>
+	<xsd:element name="DevCdmBinDenomination" type="Decimal"/>
+	<xsd:element name="DevCdmBinMaxCount" type="Long"/>
+	<xsd:element name="DevCdmBinMedia" type="ClosedEnum"/>
+	<xsd:element name="DevCdmBinNum" type="Long"/>
+	<xsd:element name="DevCdmBinStatus" type="ClosedEnum"/>
+	<xsd:element name="DevCdmBinType" type="OpenEnum"/>
+	<xsd:element name="DevCdmCashUnits" type="OpenEnum"/>
+	<xsd:element name="DevCdmIntermediateStacker" type="OpenEnum"/>
+	<xsd:element name="DevCdmOperation" type="OpenEnum"/>
+	<xsd:element name="DevCdmPosition" type="DevCdmPosition_Type"/>
+	<xsd:element name="DevCdmPositionLocation" type="OpenEnum"/>
+	<xsd:element name="DevCdmPositionStatus" type="OpenEnum"/>
+	<xsd:element name="DevCdmSafeDoor" type="ClosedEnum"/>
+	<xsd:element name="DevCdmShutter" type="OpenEnum"/>
+	<xsd:element name="DevCdmTransport" type="OpenEnum"/>
+	<xsd:element name="DevCdmTransportItems" type="OpenEnum"/>
+	<xsd:element name="DevCdmType" type="OpenEnum"/>
+	<xsd:element name="DevChkImageEnabled" type="Boolean"/>
+	<xsd:element name="DevChkInk" type="ClosedEnum"/>
+	<xsd:element name="DevChkMedia" type="ClosedEnum"/>
+	<xsd:element name="DevChkOperation" type="OpenEnum"/>
+	<xsd:element name="DevChkType" type="OpenEnum"/>
+	<xsd:element name="DevCimBinCount" type="Long"/>
+	<xsd:element name="DevCimBinCurCode" type="CurCode_Type"/>
+	<xsd:element name="DevCimBinDenomination" type="Decimal"/>
+	<xsd:element name="DevCimBinMaxCount" type="Long"/>
+	<xsd:element name="DevCimBinNum" type="Long"/>
+	<xsd:element name="DevCimBinStatus" type="ClosedEnum"/>
+	<xsd:element name="DevCimBinType" type="OpenEnum"/>
+	<xsd:element name="DevCimType" type="OpenEnum"/>
+	<xsd:element name="DevCimOperation" type="OpenEnum"/>
+	<xsd:element name="DevCimSafeDoor" type="OpenEnum"/>
+	<xsd:element name="DevCimCashUnits" type="OpenEnum"/>
+	<xsd:element name="DevCimIntermediateStacker" type="OpenEnum"/>
+	<xsd:element name="DevCimStackerItems" type="OpenEnum"/>
+	<xsd:element name="DevCimNoteReader" type="OpenEnum"/>
+	<xsd:element name="DevCimDropBox" type="OpenEnum"/>
+	<xsd:element name="DevCimPosition" type="DevCimPosition_Type"/>
+	<xsd:element name="DevCimBin" type="DevCimBin_Type"/>
+	<xsd:element name="DevCimPositionLocation" type="OpenEnum"/>
+	<xsd:element name="DevCimPositionStatus" type="OpenEnum"/>
+	<xsd:element name="DevCimShutter" type="OpenEnum"/>
+	<xsd:element name="DevCimTransport" type="OpenEnum"/>
+	<xsd:element name="DevCimTransportItems" type="OpenEnum"/>
+	<xsd:element name="DevDepContainer" type="ClosedEnum"/>
+	<xsd:element name="DevDepEnvelopeDispenser" type="ClosedEnum"/>
+	<xsd:element name="DevDepEnvelopeSupply" type="ClosedEnum"/>
+	<xsd:element name="DevDepNumOfDeposits" type="Long"/>
+	<xsd:element name="DevDepOperation" type="OpenEnum"/>
+	<xsd:element name="DevDepPrinter" type="ClosedEnum"/>
+	<xsd:element name="DevDepShutter" type="ClosedEnum"/>
+	<xsd:element name="DevDepToner" type="ClosedEnum"/>
+	<xsd:element name="DevDepTransport" type="ClosedEnum"/>
+	<xsd:element name="DevDepType" type="OpenEnum"/>
+	<xsd:element name="DevDetail" type="DevDetail_Type"/>
+	<xsd:element name="DevDetailAlm" type="DevDetailAlm_Type"/>
+	<xsd:element name="DevDetailApp" type="DevDetailApp_Type"/>
+	<xsd:element name="DevDetailCam" type="DevDetailCam_Type"/>
+	<xsd:element name="DevDetailCdm" type="DevDetailCdm_Type"/>
+	<xsd:element name="DevDetailChk" type="DevDetailChk_Type"/>
+	<xsd:element name="DevDetailCim" type="DevDetailCim_Type"/>
+	<xsd:element name="DevDetailDep" type="DevDetailDep_Type"/>
+	<xsd:element name="DevDetailIdc" type="DevDetailIdc_Type"/>
+	<xsd:element name="DevDetailPIN" type="DevDetailPIN_Type"/>
+	<xsd:element name="DevDetailPtr" type="DevDetailPtr_Type"/>
+	<xsd:element name="DevDetailSiu" type="DevDetailSiu_Type"/>
+	<xsd:element name="DevDetailTtu" type="DevDetailTtu_Type"/>
+	<xsd:element name="DevDetailVdm" type="DevDetailVdm_Type"/>
+	<xsd:element name="DevHealthLevel" type="OpenEnum"/>
+	<xsd:element name="DevId" type="Identifier"/>
+	<xsd:element name="DevIdcCards" type="Long"/>
+	<xsd:element name="DevIdcChipPower" type="ClosedEnum"/>
+	<xsd:element name="DevIdcMedia" type="ClosedEnum"/>
+	<xsd:element name="DevIdcOperation" type="OpenEnum"/>
+	<xsd:element name="DevIdcRetainBin" type="ClosedEnum"/>
+	<xsd:element name="DevIdcRetainedCard" type="DevIdcRetainedCard_Type"/>
+	<xsd:element name="DevIdcSecurity" type="ClosedEnum"/>
+	<xsd:element name="DevIdcType" type="OpenEnum"/>
+	<xsd:element name="DevName" type="DevName_Type"/>
+	<xsd:element name="DevPINEncStat" type="ClosedEnum"/>
+	<xsd:element name="DevPINOperation" type="OpenEnum"/>
+	<xsd:element name="DevPINType" type="OpenEnum"/>
+	<xsd:element name="DevPlatformData" type="DevPlatformData_Type"/>
+	<xsd:element name="DevPlatformSource" type="ClosedEnum"/>
+	<xsd:element name="DevPlatformXfs" type="DevPlatformXfs_Type"/>
+	<xsd:element name="DevPtrInk" type="ClosedEnum"/>
+	<xsd:element name="DevPtrLamp" type="ClosedEnum"/>
+	<xsd:element name="DevPtrMedia" type="ClosedEnum"/>
+	<xsd:element name="DevPtrOperation" type="OpenEnum"/>
+	<xsd:element name="DevPtrRetractBin" type="ClosedEnum"/>
+	<xsd:element name="DevPtrSupply" type="DevPtrSupply_Type"/>
+	<xsd:element name="DevPtrSupplyLevel" type="ClosedEnum"/>
+	<xsd:element name="DevPtrSupplyLocation" type="OpenEnum"/>
+	<xsd:element name="DevPtrToner" type="ClosedEnum"/>
+	<xsd:element name="DevPtrType" type="OpenEnum"/>
+	<xsd:element name="DevRec" type="DevRec_Type"/>
+	<xsd:element name="DevSiuAmberLed" type="ClosedEnum"/>
+	<xsd:element name="DevSiuAmbientLight" type="OpenEnum"/>
+	<xsd:element name="DevSiuAudibleAlarm" type="OpenEnum"/>
+	<xsd:element name="DevSiuAudio" type="OpenEnum"/>
+	<xsd:element name="DevSiuAuxiliary" type="ClosedEnum"/>
+	<xsd:element name="DevSiuAuxiliaryStatus" type="DevSiuAuxiliaryStatus_Type"/>
+	<xsd:element name="DevSiuCabinet" type="OpenEnum"/>
+	<xsd:element name="DevSiuCdmGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuChkGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuCimGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuCoinInGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuCoinOutGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuDepGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuDocumentGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuDoorStatus" type="DevSiuDoorStatus_Type"/>
+	<xsd:element name="DevSiuDoors" type="ClosedEnum"/>
+	<xsd:element name="DevSiuEnhancedAudio" type="OpenEnum"/>
+	<xsd:element name="DevSiuFasciaLight" type="OpenEnum"/>
+	<xsd:element name="DevSiuGreenLed" type="ClosedEnum"/>
+	<xsd:element name="DevSiuGuidelightStatus" type="DevSiuGuidelightStatus_Type"/>
+	<xsd:element name="DevSiuGuidelights" type="ClosedEnum"/>
+	<xsd:element name="DevSiuHeat" type="OpenEnum"/>
+	<xsd:element name="DevSiuHeating" type="OpenEnum"/>
+	<xsd:element name="DevSiuIdcGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuIndicatorStatus" type="DevSiuIndicatorStatus_Type"/>
+	<xsd:element name="DevSiuIndicators" type="ClosedEnum"/>
+	<xsd:element name="DevSiuOpenClose" type="OpenEnum"/>
+	<xsd:element name="DevSiuOperation" type="OpenEnum"/>
+	<xsd:element name="DevSiuOperatorSwitch" type="OpenEnum"/>
+	<xsd:element name="DevSiuPassbookGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuProximity" type="OpenEnum"/>
+	<xsd:element name="DevSiuReceiptGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuRedLed" type="ClosedEnum"/>
+	<xsd:element name="DevSiuRemoteStatus" type="DevSiuRemoteStatus_Type"/>
+	<xsd:element name="DevSiuSafe" type="OpenEnum"/>
+	<xsd:element name="DevSiuScannerGuidelight" type="OpenEnum"/>
+	<xsd:element name="DevSiuSeismic" type="OpenEnum"/>
+	<xsd:element name="DevSiuSensorStatus" type="DevSiuSensorStatus_Type"/>
+	<xsd:element name="DevSiuSensors" type="ClosedEnum"/>
+	<xsd:element name="DevSiuTamper" type="OpenEnum"/>
+	<xsd:element name="DevSiuType" type="DevSiuType_Type"/>
+	<xsd:element name="DevSiuUps" type="OpenEnum"/>
+	<xsd:element name="DevSiuVandalShield" type="OpenEnum"/>
+	<xsd:element name="DevSiuVolume" type="Long"/>
+	<xsd:element name="DevStatus" type="DevStatus_Type"/>
+	<xsd:element name="DevStatusCode" type="ClosedEnum"/>
+	<xsd:element name="DevTtuKbd" type="ClosedEnum"/>
+	<xsd:element name="DevTtuKbdLock" type="ClosedEnum"/>
+	<xsd:element name="DevTtuLed" type="ClosedEnum"/>
+	<xsd:element name="DevTtuOperation" type="OpenEnum"/>
+	<xsd:element name="DevTtuType" type="OpenEnum"/>
+	<xsd:element name="DevVdmOperation" type="OpenEnum"/>
+	<xsd:element name="DevVdmServiceState" type="ClosedEnum"/>
+	<xsd:element name="DevInfo" type="DevInfo_Type"/>
+	<xsd:element name="PlatformXfsAction" type="Decimal"/>
+	<xsd:element name="PlatformXfsAppId" type="PlatformXfsAppId_Type"/>
+	<xsd:element name="PlatformXfsCmdCode" type="Decimal"/>
+	<xsd:element name="PlatformXfsCmdHResult" type="Long"/>
+	<xsd:element name="PlatformXfsDesc" type="C"/>
+	<xsd:element name="PlatformXfsEventId" type="Decimal"/>
+	<xsd:element name="PlatformXfsLogicalName" type="PlatformXfsLogicalName_Type"/>
+	<xsd:element name="PlatformXfsPhysicalName" type="PlatformXfsPhysicalName_Type"/>
+	<xsd:element name="PlatformXfsRequestId" type="Decimal"/>
+	<xsd:element name="PlatformXfsState" type="Decimal"/>
+	<xsd:element name="PlatformXfsTimestamp" type="DateTime"/>
+	<xsd:element name="PlatformXfsWkstName" type="PlatformXfsWkstName_Type"/>
+</xsd:schema>

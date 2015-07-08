@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CustLib.xsd"/>
+	<xsd:complexType name="CustAuthModRq_Type">
+		<xsd:annotation>
+			<xsd:documentation>Section 5.4.2.4.1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CustPswd"/>
+				<xsd:element ref="Certificate"/>
+				<xsd:element ref="PINBlock"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustAuthModRs_Type">
+		<xsd:annotation>
+			<xsd:documentation>Section 5.4.2.4.2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustAuthModRq" type="CustAuthModRq_Type"/>
+	<xsd:element name="CustAuthModRs" type="CustAuthModRs_Type"/>
+</xsd:schema>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_BankSvc.xsd"/>
+	<xsd:include schemaLocation="IFX170_BaseSvc.xsd"/>
+	<xsd:include schemaLocation="IFX170_PaySvc.xsd"/>
+	<xsd:include schemaLocation="IFX170_MediaSvc.xsd"/>
+	<xsd:include schemaLocation="IFX170_RootSvc.xsd"/>
+	<xsd:include schemaLocation="IFX170_PresSvc.xsd"/>
+	<xsd:complexType name="IFX_Type">
+		<xsd:choice>
+			<xsd:sequence>
+				<xsd:element ref="SignonRq"/>
+				<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+					<xsd:choice>
+						<xsd:element ref="BaseSvcRq"/>
+						<xsd:element ref="BankSvcRq"/>
+						<xsd:element ref="PaySvcRq"/>
+						<xsd:element ref="PresSvcRq"/>
+						<xsd:element ref="MediaSvcRq"/>
+						<xsd:element ref="RootSvcRq"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:element ref="SignoffRq" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="SignonRs" minOccurs="0"/>
+				<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+					<xsd:choice>
+						<xsd:element ref="BaseSvcRs"/>
+						<xsd:element ref="BankSvcRs"/>
+						<xsd:element ref="PaySvcRs"/>
+						<xsd:element ref="PresSvcRs"/>
+						<xsd:element ref="MediaSvcRs"/>
+						<xsd:element ref="RootSvcRs"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:element ref="SignoffRs" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="SignoffRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="SignoffRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="SignonRq_Type">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="SignonPswd"/>
+				<xsd:element ref="SignonCert"/>
+				<xsd:element ref="SignonTransport"/>
+				<xsd:element ref="SignonMagPIN"/>
+				<xsd:element ref="SignonICC"/>
+				<xsd:element ref="SessKey"/>
+			</xsd:choice>
+			<xsd:element ref="SignonOverride" minOccurs="0"/>
+			<xsd:element ref="ClientDt"/>
+			<xsd:element ref="CustLangPref"/>
+			<xsd:element ref="ClientApp"/>
+			<xsd:element ref="ProxyClient" minOccurs="0"/>
+			<xsd:element ref="EU.Cur" minOccurs="0"/>
+			<xsd:element ref="SuppressEcho" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="SignonRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="SignonRole" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence minOccurs="0">
+				<xsd:element ref="GenSessKey" minOccurs="0"/>
+				<xsd:element ref="ClientDt" minOccurs="0"/>
+				<xsd:element ref="CustLangPref" minOccurs="0"/>
+				<xsd:element ref="ClientApp" minOccurs="0"/>
+				<xsd:element ref="ProxyClient" minOccurs="0"/>
+				<xsd:element ref="EU.Cur" minOccurs="0"/>
+				<xsd:element ref="ServerDt"/>
+				<xsd:element ref="SessKey" minOccurs="0"/>
+				<xsd:element ref="ExpDt" minOccurs="0"/>
+				<xsd:element ref="Language"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:element name="IFX" type="IFX_Type"/>
+	<xsd:element name="SignoffRq" type="SignoffRq_Type"/>
+	<xsd:element name="SignoffRs" type="SignoffRs_Type"/>
+	<xsd:element name="SignonRq" type="SignonRq_Type"/>
+	<xsd:element name="SignonRs" type="SignonRs_Type"/>
+	<xsd:element name="SignonTransport" type="SignonTransport_Type"/>
+</xsd:schema>

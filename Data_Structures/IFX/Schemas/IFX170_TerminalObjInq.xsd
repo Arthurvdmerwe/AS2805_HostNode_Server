@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_TerminalLib.xsd"/>
+	<xsd:complexType name="TerminalObjInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="TerminalObjId"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalObjInqRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="TerminalObjId" minOccurs="0"/>
+			<xsd:element ref="TerminalObjRec" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TerminalObjInqRq" type="TerminalObjInqRq_Type"/>
+	<xsd:element name="TerminalObjInqRs" type="TerminalObjInqRs_Type"/>
+</xsd:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeTypeMod.xsd"/>
+	<xsd:complexType name="CustPayeeMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CustPayeeAddRs"/>
+				<xsd:element ref="CustPayeeModRs"/>
+				<xsd:element ref="CustPayeeTypeModRs"/>
+				<xsd:element ref="CustPayeeDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustPayeeRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustPayeeId"/>
+			<xsd:element ref="CustPayeeInfo"/>
+			<xsd:element ref="BillerContact" minOccurs="0"/>
+			<xsd:element ref="DaysToPay"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustPayeeMsgRec" type="CustPayeeMsgRec_Type"/>
+	<xsd:element name="CustPayeeRec" type="CustPayeeRec_Type"/>
+</xsd:schema>

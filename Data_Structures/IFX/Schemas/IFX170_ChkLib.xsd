@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdInstAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkOrdSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecChkOrdSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkAcceptStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChkIssueStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_StopChkSync.xsd"/>
+	<xsd:complexType name="ChkAcceptRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkAcceptId"/>
+			<xsd:element ref="ChkAcceptInfo"/>
+			<xsd:element ref="ChkAcceptStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkAcceptStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkAcceptStatusCode"/>
+			<xsd:element ref="EffDt"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkAcceptInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkAcceptType"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:element ref="CreditId" minOccurs="0"/>
+			<xsd:element ref="SettleInd" minOccurs="0"/>
+			<xsd:element ref="TruncatedInd" minOccurs="0"/>
+			<xsd:element ref="CreditMediaChkInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkAcceptMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="ChkAcceptAddRs"/>
+				<xsd:element ref="ChkAcceptModRs"/>
+				<xsd:element ref="ChkAcceptCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkAcceptMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="ChkAcceptAddRq"/>
+				<xsd:element ref="ChkAcceptModRq"/>
+				<xsd:element ref="ChkAcceptCanRq"/>
+				<xsd:element ref="ChkAcceptInqRq"/>
+				<xsd:element ref="ChkAcceptAudRq"/>
+				<xsd:element ref="ChkAcceptSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkIssueInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="DepAcctId"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkInfo" minOccurs="0"/>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="DueDt" minOccurs="0"/>
+			<xsd:element ref="PaidDt" minOccurs="0"/>
+			<xsd:element ref="ImageURL" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkIssueMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="ChkIssueAddRs"/>
+				<xsd:element ref="ChkIssueModRs"/>
+				<xsd:element ref="ChkIssueStatusModRs"/>
+				<xsd:element ref="ChkIssueDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkIssueRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkIssueId"/>
+			<xsd:element ref="ChkIssueInfo"/>
+			<xsd:element ref="ChkIssueStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkIssueStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkIssueStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdDetail_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="ChkPrint" minOccurs="0"/>
+				<xsd:element ref="ChkText" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="CustNameAddr" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PersonInfo" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:element ref="DeliveryDestination" minOccurs="0"/>
+			<xsd:element ref="Count" minOccurs="0"/>
+			<xsd:element ref="ChkNumPrefix" minOccurs="0"/>
+			<xsd:element ref="ChkNumStart" minOccurs="0"/>
+			<xsd:element ref="ChkNumSuffix" minOccurs="0"/>
+			<xsd:element ref="ChkBkStyleId" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="BillingMethod" minOccurs="0"/>
+			<xsd:element ref="CoverMngrm" minOccurs="0"/>
+			<xsd:element ref="CoverStyleId" minOccurs="0"/>
+			<xsd:element ref="ArtWorkId" minOccurs="0"/>
+			<xsd:element ref="IncEndrsmntStmp" minOccurs="0"/>
+			<xsd:element ref="FontId" minOccurs="0"/>
+			<xsd:element ref="OvrSigText" minOccurs="0"/>
+			<xsd:element ref="IncSecSigLine" minOccurs="0"/>
+			<xsd:element ref="ClubAcctId" minOccurs="0"/>
+			<xsd:element ref="VoucherTypeId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="ChkPrint" minOccurs="0"/>
+				<xsd:element ref="ChkText" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:element ref="CustNameAddr" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PersonInfo" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:element ref="DeliveryDestination" minOccurs="0"/>
+			<xsd:element ref="Count" minOccurs="0"/>
+			<xsd:element ref="ChkNumPrefix" minOccurs="0"/>
+			<xsd:element ref="ChkNumStart" minOccurs="0"/>
+			<xsd:element ref="ChkNumSuffix" minOccurs="0"/>
+			<xsd:element ref="ChkBkStyleId" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+			<xsd:element ref="BillingMethod" minOccurs="0"/>
+			<xsd:element ref="CoverMngrm" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="CoverStyleId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ArtWorkId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncEndrsmntStmp" minOccurs="0"/>
+			<xsd:element ref="FontId" minOccurs="0"/>
+			<xsd:element ref="OvrSigText" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncSecSigLine" minOccurs="0"/>
+			<xsd:element ref="ClubAcctId" minOccurs="0"/>
+			<xsd:element ref="VoucherTypeId" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="ChkOrdAddRs"/>
+				<xsd:element ref="ChkOrdModRs"/>
+				<xsd:element ref="ChkOrdCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="ChkOrdAddRq"/>
+				<xsd:element ref="ChkOrdModRq"/>
+				<xsd:element ref="ChkOrdCanRq"/>
+				<xsd:element ref="ChkOrdInqRq"/>
+				<xsd:element ref="ChkOrdSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkOrdId"/>
+			<xsd:element ref="ChkOrdInfo"/>
+			<xsd:element ref="ChkOrdStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkOrdStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="ChkOrdStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="ResolvePendingDt" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecChkOrdMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="RecChkOrdAddRs"/>
+				<xsd:element ref="RecChkOrdModRs"/>
+				<xsd:element ref="RecChkOrdCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecChkOrdRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="RecChkOrdId"/>
+			<xsd:element ref="ChkOrdInfo"/>
+			<xsd:element ref="RecModelInfo"/>
+			<xsd:element ref="RemainingInsts" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StopChkStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="StopChkStatusCode"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StopChkMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="StopChkAddRs"/>
+				<xsd:element ref="StopChkCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StopChkMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="StopChkAddRq"/>
+				<xsd:element ref="StopChkCanRq"/>
+				<xsd:element ref="StopChkInqRq"/>
+				<xsd:element ref="StopChkAudRq"/>
+				<xsd:element ref="StopChkSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StopChkRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="StopChkInfo"/>
+			<xsd:element ref="PostedDt" minOccurs="0"/>
+			<xsd:element ref="StopChkStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StopChkStatus" type="StopChkStatus_Type"/>
+	<xsd:element name="StopChkStatusCode" type="StopChkStatusCode_Type"/>
+	<xsd:element name="StopChkMsgRec" type="StopChkMsgRec_Type"/>
+	<xsd:element name="StopChkMsgRqInfo" type="StopChkMsgRqInfo_Type"/>
+	<xsd:element name="StopChkRec" type="StopChkRec_Type"/>
+	<xsd:element name="RecChkOrdMsgRec" type="RecChkOrdMsgRec_Type"/>
+	<xsd:element name="RecChkOrdRec" type="RecChkOrdRec_Type"/>
+	<xsd:element name="ChkOrdStatus" type="ChkOrdStatus_Type"/>
+	<xsd:element name="ChkOrdStatusCode" type="ChkOrdStatusCode_Type"/>
+	<xsd:element name="ChkOrdMsgRec" type="ChkOrdMsgRec_Type"/>
+	<xsd:element name="ChkOrdMsgRqInfo" type="ChkOrdMsgRqInfo_Type"/>
+	<xsd:element name="ChkOrdRec" type="ChkOrdRec_Type"/>
+	<xsd:element name="ChkOrdDetail" type="ChkOrdDetail_Type"/>
+	<xsd:element name="ChkOrdInfo" type="ChkOrdInfo_Type"/>
+	<xsd:element name="ChkIssueStatus" type="ChkIssueStatus_Type"/>
+	<xsd:element name="ChkIssueStatusCode" type="ClosedEnum"/>
+	<xsd:element name="ChkIssueMsgRec" type="ChkIssueMsgRec_Type"/>
+	<xsd:element name="ChkIssueRec" type="ChkIssueRec_Type"/>
+	<xsd:element name="ChkIssueInfo" type="ChkIssueInfo_Type"/>
+	<xsd:element name="ChkAcceptInfo" type="ChkAcceptInfo_Type"/>
+	<xsd:element name="ChkAcceptMsgRqInfo" type="ChkAcceptMsgRqInfo_Type"/>
+	<xsd:element name="ChkAcceptRec" type="ChkAcceptRec_Type"/>
+	<xsd:element name="ChkAcceptStatus" type="ChkAcceptStatus_Type"/>
+	<xsd:element name="ChkAcceptStatusCode" type="OpenEnum"/>
+	<xsd:element name="ChkAcceptType" type="OpenEnum"/>
+	<xsd:element name="ChkAcceptMsgRec" type="ChkAcceptMsgRec_Type"/>
+</xsd:schema>

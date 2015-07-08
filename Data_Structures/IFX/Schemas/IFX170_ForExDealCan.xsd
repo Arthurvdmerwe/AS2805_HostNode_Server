@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_ForExLib.xsd"/>
+	<xsd:complexType name="ForExDealCanRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="ForExDealId"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExDealCanRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="ForExDealId" minOccurs="0"/>
+			<xsd:element ref="ForExDealRec" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ForExDealCanRq" type="ForExDealCanRq_Type"/>
+	<xsd:element name="ForExDealCanRs" type="ForExDealCanRs_Type"/>
+</xsd:schema>

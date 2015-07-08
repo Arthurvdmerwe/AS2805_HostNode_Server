@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" xmlns:pain001="urn:swift:xsd:$pain.001.001.01" xmlns:pain002="urn:swift:xsd:$pain.002.001.01" xmlns:pain004="urn:swift:xsd:$pain.004.001.01" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="urn:swift:xsd:$pain.001.001.01" schemaLocation="$pain.001.001.01.xsd"/>
+	<xsd:import namespace="urn:swift:xsd:$pain.002.001.01" schemaLocation="$pain.002.001.01.xsd"/>
+	<xsd:import namespace="urn:swift:xsd:$pain.004.001.01" schemaLocation="$pain.004.001.01.xsd"/>
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAckAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAckInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAckRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtAuthSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtBatchAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtBatchCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtBatchStatusInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtBatchStatusAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtEnclRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtStatusAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtStatusInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtInstAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_RecPmtSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_RemitSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CompRemitStmtAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CompRemitStmtAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CompRemitStmtInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CompRemitStmtSync.xsd"/>
+	<xsd:complexType name="CompRemitStmtMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:element ref="CompRemitStmtAddRs"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompRemitStmtRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CompRemitStmtId"/>
+			<xsd:element ref="CompRemitStmtInfo"/>
+			<xsd:element ref="CompRemitStmtStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompRemitStmtStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CompRemitStmtStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAckInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtStatusCode"/>
+			<xsd:element ref="Count"/>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+			<xsd:element ref="CompositeContactInfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAckMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="PmtAckInqRq"/>
+				<xsd:element ref="PmtAckAdviseRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAckRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="SvcRqUID" minOccurs="0"/>
+			<xsd:element ref="PmtAckInfo" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAuthInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="DepAcctIdFrom"/>
+				<xsd:element ref="CardAcctIdFrom"/>
+			</xsd:choice>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="Name" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAuthMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PmtAuthAddRs"/>
+				<xsd:element ref="PmtAuthModRs"/>
+				<xsd:element ref="PmtAuthCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAuthMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="PmtAuthAddRq"/>
+				<xsd:element ref="PmtAuthModRq"/>
+				<xsd:element ref="PmtAuthCanRq"/>
+				<xsd:element ref="PmtAuthInqRq"/>
+				<xsd:element ref="PmtAuthAudRq"/>
+				<xsd:element ref="PmtAuthSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAuthRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtAuthId"/>
+			<xsd:element ref="PmtAuthInfo"/>
+			<xsd:element ref="PmtAuthStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtAuthStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtAuthStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtBatchInfo">
+		<xsd:sequence>
+			<xsd:element ref="pain001:Document" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtBatchStatusRec">
+		<xsd:sequence>
+			<xsd:element ref="PmtBatchId"/>
+			<xsd:element ref="PmtBatchStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtBatchRec">
+		<xsd:sequence>
+			<xsd:element ref="PmtBatchId"/>
+			<xsd:element ref="PmtBatchInfo" minOccurs="0"/>
+			<xsd:element ref="PmtBatchStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtBatchStatus">
+		<xsd:choice>
+			<xsd:element ref="pain.002.001.01"/>
+			<xsd:element ref="pain.004.001.01"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtEnclType"/>
+			<xsd:element ref="PmtEnclPayeeInfo" minOccurs="0"/>
+			<xsd:element ref="CreditMediaItem" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:element ref="Category" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PrcDt"/>
+				<xsd:element ref="DueDt"/>
+			</xsd:choice>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PmtEnclAddRs"/>
+				<xsd:element ref="PmtEnclModRs"/>
+				<xsd:element ref="PmtEnclCanRs"/>
+				<xsd:element ref="PmtEnclRevRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="PmtEnclAddRq"/>
+				<xsd:element ref="PmtEnclModRq"/>
+				<xsd:element ref="PmtEnclInqRq"/>
+				<xsd:element ref="PmtEnclCanRq"/>
+				<xsd:element ref="PmtEnclAudRq"/>
+				<xsd:element ref="PmtEnclStatusModRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclPayeeInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="StdPayeeId"/>
+				<xsd:element ref="PmtEnclPayee"/>
+			</xsd:choice>
+			<xsd:element ref="IndustId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclPayee_Type">
+		<xsd:sequence>
+			<xsd:element ref="Name"/>
+			<xsd:element ref="PostAddr"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtEnclId"/>
+			<xsd:element ref="PmtEnclInfo"/>
+			<xsd:element ref="PmtEnclStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtEnclStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtEnclStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="LegalName"/>
+				<xsd:element ref="PayerInfo"/>
+			</xsd:choice>
+			<xsd:element ref="RemitInfo" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctIdFrom"/>
+				<xsd:element ref="CardAcctIdFrom"/>
+			</xsd:choice>
+			<xsd:element ref="Category" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PrcDt"/>
+				<xsd:element ref="DueDt"/>
+			</xsd:choice>
+			<xsd:element ref="ImmediatePmt" minOccurs="0"/>
+			<xsd:element ref="ForExDealId" minOccurs="0"/>
+			<xsd:element ref="PmtRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="PmtAddRs"/>
+				<xsd:element ref="PmtModRs"/>
+				<xsd:element ref="PmtStatusModRs"/>
+				<xsd:element ref="PmtCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="PmtAddRq"/>
+				<xsd:element ref="PmtModRq"/>
+				<xsd:element ref="PmtStatusModRq"/>
+				<xsd:element ref="PmtCanRq"/>
+				<xsd:element ref="PmtInqRq"/>
+				<xsd:element ref="PmtAudRq"/>
+				<xsd:element ref="PmtSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtId"/>
+			<xsd:element ref="RecPmtId" minOccurs="0"/>
+			<xsd:element ref="SvcRqUID" minOccurs="0"/>
+			<xsd:element ref="PmtInfo"/>
+			<xsd:element ref="PmtStatus"/>
+			<xsd:element ref="PmtRemitAck" minOccurs="0"/>
+			<xsd:element ref="PmtRemitInfo" minOccurs="0"/>
+			<xsd:element ref="CreatedDt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="OrigPmtPrcDt"/>
+				<xsd:element ref="OrigPmtDueDt"/>
+			</xsd:choice>
+			<xsd:element ref="FIDebitTrcNum" minOccurs="0"/>
+			<xsd:element ref="FICreditTrcNum" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRemitAck_Type">
+		<xsd:sequence>
+			<xsd:element ref="TotalFeeCharge" minOccurs="0"/>
+			<xsd:element ref="CompositePmtRemitInfo" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRemitChksum_Type">
+		<xsd:sequence>
+			<xsd:element ref="AckType"/>
+			<xsd:element ref="Count"/>
+			<xsd:element ref="TotalCurAmt"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+			<xsd:element ref="CompositeContactInfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRemitDetail_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtRemitRefId"/>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="PmtRemitStatus" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRemitInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="Name" minOccurs="0"/>
+			<xsd:element ref="PostAddr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtRemitStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtRemitStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtStatusRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtId"/>
+			<xsd:element ref="PmtStatus"/>
+			<xsd:element ref="PmtRefId" minOccurs="0"/>
+			<xsd:element ref="SvcRqUID" minOccurs="0"/>
+			<xsd:element ref="NetworkTrnInfo" minOccurs="0"/>
+			<xsd:element ref="CompositeContactInfo" minOccurs="0"/>
+			<xsd:element ref="PmtRemitAck" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PmtStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="PmtAuthId" minOccurs="0"/>
+			<xsd:element ref="RemitId" minOccurs="0"/>
+			<xsd:element ref="RecPmtMod" minOccurs="0"/>
+			<xsd:element ref="PmtAuthCount" minOccurs="0"/>
+			<xsd:element ref="PmtMethod" minOccurs="0"/>
+			<xsd:element ref="ChkNum" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompositePmtRemitInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="PmtRemitChksum" minOccurs="0"/>
+			<xsd:element ref="PmtRemitDetail" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecPmtMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="RecPmtAddRs"/>
+				<xsd:element ref="RecPmtModRs"/>
+				<xsd:element ref="RecPmtCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecPmtMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="RecPmtAddRq"/>
+				<xsd:element ref="RecPmtModRq"/>
+				<xsd:element ref="RecPmtCanRq"/>
+				<xsd:element ref="RecPmtInqRq"/>
+				<xsd:element ref="RecPmtAudRq"/>
+				<xsd:element ref="RecPmtSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecPmtRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="RecPmtId"/>
+			<xsd:element ref="PmtInfo"/>
+			<xsd:element ref="RecModelInfo"/>
+			<xsd:element ref="RemainingInsts"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemitDetail_Type">
+		<xsd:sequence>
+			<xsd:element ref="InvoiceReceiver" minOccurs="0"/>
+			<xsd:element ref="InvoiceSender" minOccurs="0"/>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:element ref="PmtSummAmt" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="RefInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillRefInfo" minOccurs="0"/>
+			<xsd:element ref="BillId" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+			<xsd:element ref="BillingAcct" minOccurs="0"/>
+			<xsd:element ref="InvoiceInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemitMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="RemitAddRs"/>
+				<xsd:element ref="RemitModRs"/>
+				<xsd:element ref="RemitStatusModRs"/>
+				<xsd:element ref="RemitDelRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemitMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="RemitAddRq"/>
+			<xsd:element ref="RemitModRq"/>
+			<xsd:element ref="RemitStatusModRq"/>
+			<xsd:element ref="RemitDelRq"/>
+			<xsd:element ref="RemitInqRq"/>
+			<xsd:element ref="RemitAudRq"/>
+			<xsd:element ref="RemitSyncRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="RemitRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="RemitId"/>
+			<xsd:element ref="RemitInfo"/>
+			<xsd:element ref="RemitStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemitStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="RemitStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Memo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompRemitStmtInfo_Type">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="LockboxDepId"/>
+				<xsd:element ref="DepAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="Count" minOccurs="0"/>
+			<xsd:element ref="RefInfo" minOccurs="0"/>
+			<xsd:element ref="PrcDt"/>
+			<xsd:element ref="BatchInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="LockboxURL" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CompRemitStmtMsgRec" type="CompRemitStmtMsgRec_Type"/>
+	<xsd:element name="CompRemitStmtRec" type="CompRemitStmtRec_Type"/>
+	<xsd:element name="CompRemitStmtStatus" type="CompRemitStmtStatus_Type"/>
+	<xsd:element name="CompRemitStmtStatusCode" type="CompRemitStmtStatusCode_Type"/>
+	<xsd:element name="CompRemitStmtId" type="CompRemitStmtId_Type"/>
+	<xsd:element name="CompRemitStmtInfo" type="CompRemitStmtInfo_Type"/>
+	<xsd:element name="RemitStatus" type="RemitStatus_Type"/>
+	<xsd:element name="RemitStatusCode" type="RemitStatusCode_Type"/>
+	<xsd:element name="RemitMsgRec" type="RemitMsgRec_Type"/>
+	<xsd:element name="RemitMsgRqInfo" type="RemitMsgRqInfo_Type"/>
+	<xsd:element name="RemitRec" type="RemitRec_Type"/>
+	<xsd:element name="RemitDetail" type="RemitDetail_Type"/>
+	<xsd:element name="RecPmtMod" type="RecPmtMod_Type"/>
+	<xsd:element name="RecPmtMsgRec" type="RecPmtMsgRec_Type"/>
+	<xsd:element name="RecPmtMsgRqInfo" type="RecPmtMsgRqInfo_Type"/>
+	<xsd:element name="RecPmtRec" type="RecPmtRec_Type"/>
+	<xsd:element name="CompositePmtRemitInfo" type="CompositePmtRemitInfo_Type"/>
+	<xsd:element name="PmtTrnStatusCode" type="PmtTrnStatusCode"/>
+	<xsd:element name="PmtStatusRec" type="PmtStatusRec_Type"/>
+	<xsd:element name="PmtBatchStatusCode" type="PmtBatchStatusCode_Type"/>
+	<xsd:element name="PmtStatusCode" type="PmtStatusCode_Type"/>
+	<xsd:element name="PmtStatus" type="PmtStatus_Type"/>
+	<xsd:element name="PmtMsgRec" type="PmtMsgRec_Type"/>
+	<xsd:element name="PmtMsgRqInfo" type="PmtMsgRqInfo_Type"/>
+	<xsd:element name="PmtRec" type="PmtRec_Type"/>
+	<xsd:element name="PmtRemitAck" type="PmtRemitAck_Type"/>
+	<xsd:element name="PmtRemitChksum" type="PmtRemitChksum_Type"/>
+	<xsd:element name="PmtRemitDetail" type="PmtRemitDetail_Type"/>
+	<xsd:element name="PmtRemitInfo" type="PmtRemitInfo_Type"/>
+	<xsd:element name="PmtRemitRefId" type="PmtRemitRefId"/>
+	<xsd:element name="PmtRemitStatus" type="PmtRemitStatus_Type"/>
+	<xsd:element name="PmtRemitStatusCode" type="PmtRemitStatusCode_Type"/>
+	<xsd:element name="PmtEnclStatus" type="PmtEnclStatus_Type"/>
+	<xsd:element name="PmtEnclType" type="OpenEnum"/>
+	<xsd:element name="PmtInfo" type="PmtInfo_Type"/>
+	<xsd:element name="PmtEnclStatusCode" type="OpenEnum"/>
+	<xsd:element name="PmtEnclMsgRec" type="PmtEnclMsgRec_Type"/>
+	<xsd:element name="PmtEnclMsgRqInfo" type="PmtEnclMsgRqInfo_Type"/>
+	<xsd:element name="PmtEnclPayee" type="PmtEnclPayee_Type"/>
+	<xsd:element name="PmtEnclPayeeInfo" type="PmtEnclPayeeInfo_Type"/>
+	<xsd:element name="PmtEnclRec" type="PmtEnclRec_Type"/>
+	<xsd:element name="PmtEnclInfo" type="PmtEnclInfo_Type"/>
+	<xsd:element name="pain.002.001.01" type="pain002:pain.002.001.01"/>
+	<xsd:element name="pain.004.001.01" type="pain004:pain.004.001.01"/>
+	<xsd:element name="PmtBatchInfo" type="PmtBatchInfo"/>
+	<xsd:element name="PmtBatchRec" type="PmtBatchRec"/>
+	<xsd:element name="PmtBatchStatus" type="PmtBatchStatus"/>
+	<xsd:element name="PmtBatchStatusRec" type="PmtBatchStatusRec"/>
+	<xsd:element name="PmtAuthStatus" type="PmtAuthStatus_Type"/>
+	<xsd:element name="PmtAuthStatusCode" type="PmtAuthStatusCode_Type"/>
+	<xsd:element name="PmtAuthMsgRec" type="PmtAuthMsgRec_Type"/>
+	<xsd:element name="PmtAuthMsgRqInfo" type="PmtAuthMsgRqInfo_Type"/>
+	<xsd:element name="PmtAuthRec" type="PmtAuthRec_Type"/>
+	<xsd:element name="PmtAuthCount" type="PmtAuthCount_Type"/>
+	<xsd:element name="PmtAuthInfo" type="PmtAuthInfo_Type"/>
+	<xsd:element name="PmtAckMsgRqInfo" type="PmtAckMsgRqInfo_Type"/>
+	<xsd:element name="PmtAckRec" type="PmtAckRec_Type"/>
+	<xsd:element name="PmtAckInfo" type="PmtAckInfo_Type"/>
+</xsd:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_ChkLib.xsd"/>
+	<xsd:complexType name="ChkIssueInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="ChkIssueId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="DepAcctId" minOccurs="0"/>
+			<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkIssueStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+			<xsd:element ref="SelRangePaidDt" minOccurs="0"/>
+			<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncToken" minOccurs="0"/>
+			<xsd:element ref="IncHistory" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChkIssueInqRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+			<xsd:element ref="ChkIssueId" maxOccurs="unbounded"/>
+			<xsd:element ref="DepAcctId" minOccurs="0"/>
+			<xsd:element ref="ChkNum" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ChkIssueStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SelRangeDueDt" minOccurs="0"/>
+			<xsd:element ref="SelRangePaidDt" minOccurs="0"/>
+			<xsd:element ref="SelRangeCurAmt" minOccurs="0"/>
+			<xsd:element ref="CSPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="SPRefId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="IncToken" minOccurs="0"/>
+			<xsd:element ref="IncHistory" minOccurs="0"/>
+			<xsd:element ref="ChkIssueRec" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Token" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ChkIssueInqRq" type="ChkIssueInqRq_Type"/>
+	<xsd:element name="ChkIssueInqRs" type="ChkIssueInqRs_Type"/>
+</xsd:schema>

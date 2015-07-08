@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1"
+            targetNamespace="urn:ifxforum-org:XSD:1"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="urn:swift:xsd:$pain.001.001.01" schemaLocation="$pain.001.001.01.xsd"/>
+	<xsd:import namespace="urn:swift:xsd:$pain.002.001.01" schemaLocation="$pain.002.001.01.xsd"/>
+	<xsd:import namespace="urn:swift:xsd:$pain.004.001.01" schemaLocation="$pain.004.001.01.xsd"/>
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CustPayeeLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_StdPayeeLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_ChksumLib.xsd"/>
+	<xsd:complexType name="PaySvcRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="StdPayeeInqRq" minOccurs="0"/>
+				<xsd:element ref="StdPayeeRevRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeAddRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeModRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeTypeModRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeDelRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeInqRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeAudRq" minOccurs="0"/>
+				<xsd:element ref="CustPayeeSyncRq" minOccurs="0"/>
+				<xsd:element ref="PmtBatchAddRq" minOccurs="0"/>
+				<xsd:element ref="PmtBatchCanRq" minOccurs="0"/>
+				<xsd:element ref="PmtBatchStatusInqRq" minOccurs="0"/>
+				<xsd:element ref="PmtBatchStatusAdviseRq" minOccurs="0"/>
+				<xsd:element ref="PmtAddRq" minOccurs="0"/>
+				<xsd:element ref="PmtModRq" minOccurs="0"/>
+				<xsd:element ref="PmtStatusModRq" minOccurs="0"/>
+				<xsd:element ref="PmtStatusAdviseRq" minOccurs="0"/>
+				<xsd:element ref="PmtCanRq" minOccurs="0"/>
+				<xsd:element ref="PmtInqRq" minOccurs="0"/>
+				<xsd:element ref="PmtRevRq" minOccurs="0"/>
+				<xsd:element ref="PmtStatusInqRq" minOccurs="0"/>
+				<xsd:element ref="PmtAudRq" minOccurs="0"/>
+				<xsd:element ref="PmtSyncRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthAddRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthModRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthCanRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthInqRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthAudRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthSyncRq" minOccurs="0"/>
+				<xsd:element ref="PmtAuthRevRq" minOccurs="0"/>
+				<xsd:element ref="RemitAddRq" minOccurs="0"/>
+				<xsd:element ref="RemitModRq" minOccurs="0"/>
+				<xsd:element ref="RemitStatusModRq" minOccurs="0"/>
+				<xsd:element ref="RemitDelRq" minOccurs="0"/>
+				<xsd:element ref="RemitInqRq" minOccurs="0"/>
+				<xsd:element ref="RemitAudRq" minOccurs="0"/>
+				<xsd:element ref="RemitSyncRq" minOccurs="0"/>
+				<xsd:element ref="RemitRevRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtAddRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtInstAddRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtModRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtCanRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtInqRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtAudRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtSyncRq" minOccurs="0"/>
+				<xsd:element ref="RecPmtRevRq" minOccurs="0"/>
+				<xsd:element ref="PmtAckInqRq" minOccurs="0"/>
+				<xsd:element ref="PmtAckRevRq" minOccurs="0"/>
+				<xsd:element ref="PmtAckAdviseRq" minOccurs="0"/>
+				<xsd:element ref="ChksumAddRq" minOccurs="0"/>
+				<xsd:element ref="ChksumModRq" minOccurs="0"/>
+				<xsd:element ref="ChksumStatusModRq" minOccurs="0"/>
+				<xsd:element ref="ChksumDelRq" minOccurs="0"/>
+				<xsd:element ref="ChksumInqRq" minOccurs="0"/>
+				<xsd:element ref="ChksumAudRq" minOccurs="0"/>
+				<xsd:element ref="ChksumSyncRq" minOccurs="0"/>
+				<xsd:element ref="ChksumAdviseRq" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtAddRq" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtInqRq" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtAudRq" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtSyncRq" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="PaySvcRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="StdPayeeInqRs" minOccurs="0"/>
+				<xsd:element ref="StdPayeeRevRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeAddRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeModRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeTypeModRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeDelRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeInqRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeAudRs" minOccurs="0"/>
+				<xsd:element ref="CustPayeeSyncRs" minOccurs="0"/>
+				<xsd:element ref="PmtBatchAddRs" minOccurs="0"/>
+				<xsd:element ref="PmtBatchCanRs" minOccurs="0"/>
+				<xsd:element ref="PmtBatchStatusInqRs" minOccurs="0"/>
+				<xsd:element ref="PmtBatchStatusAdviseRs" minOccurs="0"/>
+				<xsd:element ref="PmtAddRs" minOccurs="0"/>
+				<xsd:element ref="PmtModRs" minOccurs="0"/>
+				<xsd:element ref="PmtStatusModRs" minOccurs="0"/>
+				<xsd:element ref="PmtStatusAdviseRs" minOccurs="0"/>
+				<xsd:element ref="PmtCanRs" minOccurs="0"/>
+				<xsd:element ref="PmtInqRs" minOccurs="0"/>
+				<xsd:element ref="PmtRevRs" minOccurs="0"/>
+				<xsd:element ref="PmtStatusInqRs" minOccurs="0"/>
+				<xsd:element ref="PmtAudRs" minOccurs="0"/>
+				<xsd:element ref="PmtSyncRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthAddRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthModRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthCanRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthInqRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthAudRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthSyncRs" minOccurs="0"/>
+				<xsd:element ref="PmtAuthRevRs" minOccurs="0"/>
+				<xsd:element ref="RemitAddRs" minOccurs="0"/>
+				<xsd:element ref="RemitModRs" minOccurs="0"/>
+				<xsd:element ref="RemitStatusModRs" minOccurs="0"/>
+				<xsd:element ref="RemitDelRs" minOccurs="0"/>
+				<xsd:element ref="RemitInqRs" minOccurs="0"/>
+				<xsd:element ref="RemitAudRs" minOccurs="0"/>
+				<xsd:element ref="RemitSyncRs" minOccurs="0"/>
+				<xsd:element ref="RemitRevRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtAddRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtInstAddRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtModRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtCanRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtInqRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtAudRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtSyncRs" minOccurs="0"/>
+				<xsd:element ref="RecPmtRevRs" minOccurs="0"/>
+				<xsd:element ref="PmtAckInqRs" minOccurs="0"/>
+				<xsd:element ref="PmtAckRevRs" minOccurs="0"/>
+				<xsd:element ref="PmtAckAdviseRs" minOccurs="0"/>
+				<xsd:element ref="ChksumAddRs" minOccurs="0"/>
+				<xsd:element ref="ChksumModRs" minOccurs="0"/>
+				<xsd:element ref="ChksumStatusModRs" minOccurs="0"/>
+				<xsd:element ref="ChksumDelRs" minOccurs="0"/>
+				<xsd:element ref="ChksumInqRs" minOccurs="0"/>
+				<xsd:element ref="ChksumAudRs" minOccurs="0"/>
+				<xsd:element ref="ChksumSyncRs" minOccurs="0"/>
+				<xsd:element ref="ChksumAdviseRs" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtAddRs" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtInqRs" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtAudRs" minOccurs="0"/>
+				<xsd:element ref="CompRemitStmtSyncRs" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:element name="PaySvcRq" type="PaySvcRq_Type"/>
+	<xsd:element name="PaySvcRs" type="PaySvcRs_Type"/>
+</xsd:schema>

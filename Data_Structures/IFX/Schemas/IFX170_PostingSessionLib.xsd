@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_PostingSessionStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_SessionTotalsInq.xsd"/>
+	<xsd:complexType name="PostingSessionRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="PostingSessionId"/>
+			<xsd:element ref="PostingSessionInfo"/>
+			<xsd:element ref="PostingSessionStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostingSessionStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="PostingSessionStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostingSessionInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="SessionLoginId"/>
+			<xsd:element ref="SessionDt"/>
+			<xsd:element ref="SessionPostingDt"/>
+			<xsd:element ref="PhysicalLocId" minOccurs="0"/>
+			<xsd:element ref="PhysicalLocName" minOccurs="0"/>
+			<xsd:element ref="SessionLocId" minOccurs="0"/>
+			<xsd:element ref="SessionLocName" minOccurs="0"/>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SessionTotalsRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="NetCurAmt"/>
+			<xsd:element ref="SessionBal" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostingSessionMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="PostingSessionAddRs"/>
+				<xsd:element ref="PostingSessionModRs"/>
+				<xsd:element ref="PostingSessionStatusModRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SessionTotalsRec" type="SessionTotalsRec_Type"/>
+	<xsd:element name="PostingSessionMsgRec" type="PostingSessionMsgRec_Type"/>
+	<xsd:element name="PostingSessionStatus" type="PostingSessionStatus_Type"/>
+	<xsd:element name="PostingSessionStatusCode" type="OpenEnum"/>
+	<xsd:element name="PostingSessionInfo" type="PostingSessionInfo_Type"/>
+	<xsd:element name="PostingSessionRec" type="PostingSessionRec_Type"/>
+</xsd:schema>

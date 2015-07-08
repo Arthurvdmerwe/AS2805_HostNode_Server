@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefDel.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CardPrefStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_EMVCardAdvise.xsd"/>
+	<xsd:complexType name="CardPrefRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CardPrefId"/>
+			<xsd:element ref="CardPrefInfo"/>
+			<xsd:element ref="CardPrefStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CardPrefStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CardLogicalData"/>
+			<xsd:element ref="CardPref"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPref_Type">
+		<xsd:choice>
+			<xsd:element ref="CardPrefMisc"/>
+			<xsd:element ref="CardPrefWithdrawal"/>
+			<xsd:element ref="CardPrefDeposit"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefMisc_Type">
+		<xsd:sequence>
+			<xsd:element ref="Language" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefWithdrawal_Type">
+		<xsd:sequence>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="AcctType" minOccurs="0"/>
+				<xsd:element ref="DepAcctId" minOccurs="0"/>
+				<xsd:element ref="CardAcctId" minOccurs="0"/>
+				<xsd:element ref="LoanAcctId" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element ref="PrintReceipt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefDeposit_Type">
+		<xsd:sequence>
+			<xsd:element ref="CurAmt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="AcctType" minOccurs="0"/>
+				<xsd:element ref="DepAcctId" minOccurs="0"/>
+				<xsd:element ref="CardAcctId" minOccurs="0"/>
+				<xsd:element ref="LoanAcctId" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element ref="PrintReceipt" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="CardPrefAddRs"/>
+				<xsd:element ref="CardPrefModRs"/>
+				<xsd:element ref="CardPrefDelRs"/>
+				<xsd:element ref="CardPrefRevRs"/>
+				<xsd:element ref="CardPrefStatusModRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CardPrefMsgRqInfo_Type">
+		<xsd:choice minOccurs="0">
+			<xsd:element ref="CardPrefAddRq"/>
+			<xsd:element ref="CardPrefModRq"/>
+			<xsd:element ref="CardPrefDelRq"/>
+			<xsd:element ref="CardPrefInqRq"/>
+			<xsd:element ref="CardPrefAudRq"/>
+			<xsd:element ref="CardPrefSyncRq"/>
+			<xsd:element ref="CardPrefStatusModRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:element name="CardPref" type="CardPref_Type"/>
+	<xsd:element name="CardPrefInfo" type="CardPrefInfo_Type"/>
+	<xsd:element name="CardPrefMisc" type="CardPrefMisc_Type"/>
+	<xsd:element name="CardPrefMsgRec" type="CardPrefMsgRec_Type"/>
+	<xsd:element name="CardPrefRec" type="CardPrefRec_Type"/>
+	<xsd:element name="CardPrefMsgRqInfo" type="CardPrefMsgRqInfo_Type"/>
+	<xsd:element name="CardPrefStatus" type="CardPrefStatus_Type"/>
+	<xsd:element name="CardPrefStatusCode" type="OpenEnum"/>
+	<xsd:element name="CardPrefType" type="OpenEnum"/>
+	<xsd:element name="CardPrefDeposit" type="CardPrefDeposit_Type"/>
+	<xsd:element name="CardPrefWithdrawal" type="CardPrefWithdrawal_Type"/>
+</xsd:schema>

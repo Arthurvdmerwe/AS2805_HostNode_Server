@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_BillLib.xsd"/>
+	<xsd:complexType name="BillInqRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="RecCtrlIn" minOccurs="0"/>
+			<xsd:element ref="SPName"/>
+			<xsd:element ref="SelRangeDt" minOccurs="0"/>
+			<xsd:element ref="BillId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillerId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="BillPmtStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="NotifyWilling" minOccurs="0"/>
+			<xsd:element ref="IncCounts" minOccurs="0"/>
+			<xsd:element ref="IncSummary" minOccurs="0"/>
+			<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillInqRs_Type">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="Status" minOccurs="0"/>
+				<xsd:element ref="RqUID"/>
+				<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+				<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+				<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+				<xsd:element ref="CustId" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:sequence>
+				<xsd:element ref="RecCtrlOut" minOccurs="0"/>
+				<xsd:element ref="SelRangeDt" minOccurs="0"/>
+				<xsd:element ref="BillId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillerId" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillPmtStatusCode" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="NotifyWilling" minOccurs="0"/>
+				<xsd:element ref="IncCounts" minOccurs="0"/>
+				<xsd:element ref="IncSummary" minOccurs="0"/>
+				<xsd:element ref="DeliveryMethod" minOccurs="0"/>
+				<xsd:element ref="BillRec" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="BillCounts" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BillInqRq" type="BillInqRq_Type"/>
+	<xsd:element name="BillInqRs" type="BillInqRs_Type"/>
+</xsd:schema>
+

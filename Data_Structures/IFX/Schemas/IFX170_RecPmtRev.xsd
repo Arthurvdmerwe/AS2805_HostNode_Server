@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_PmtLib.xsd"/>
+	<xsd:complexType name="RecPmtRevRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="TerminalId" minOccurs="0"/>
+			<xsd:element ref="RevReasonCode"/>
+			<xsd:element ref="Desc" minOccurs="0"/>
+			<xsd:element ref="RecPmtMsgRqInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecPmtRevRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="TerminalId" minOccurs="0"/>
+			<xsd:element ref="RevReasonCode" minOccurs="0"/>
+			<xsd:element ref="Desc" minOccurs="0"/>
+			<xsd:element ref="RecPmtMsgRqInfo"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RecPmtRevRq" type="RecPmtRevRq_Type"/>
+	<xsd:element name="RecPmtRevRs" type="RecPmtRevRs_Type"/>
+</xsd:schema>

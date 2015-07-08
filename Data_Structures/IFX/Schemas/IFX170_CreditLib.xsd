@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthCan.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_CreditAuthStatusMod.xsd"/>
+	<xsd:complexType name="CreditInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditAuthType"/>
+			<xsd:element ref="CreditType" minOccurs="0"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="PresAcctId"/>
+				<xsd:element ref="LoanAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="CreditAuthId" minOccurs="0"/>
+			<xsd:element ref="CreditId" minOccurs="0"/>
+			<xsd:element ref="ClientChgCode" minOccurs="0"/>
+			<xsd:element ref="CreditMediaItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="NetworkTrnInfo" minOccurs="0"/>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditAuthType"/>
+			<xsd:element ref="CompositeCurAmt" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="DepAcctId"/>
+				<xsd:element ref="CardAcctId"/>
+			</xsd:choice>
+			<xsd:element ref="BaseEnvr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="CreditRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditId"/>
+			<xsd:element ref="CreditInfo"/>
+			<xsd:element ref="CreditStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditStatusCode"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="CreditHeldAmtExpDt" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="CreditAddRq"/>
+				<xsd:element ref="CreditModRq"/>
+				<xsd:element ref="CreditStatusModRq"/>
+				<xsd:element ref="CreditCanRq"/>
+				<xsd:element ref="CreditInqRq"/>
+				<xsd:element ref="CreditAudRq"/>
+				<xsd:element ref="CreditSyncRq"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditAuthId"/>
+			<xsd:element ref="CreditAuthInfo"/>
+			<xsd:element ref="CreditAuthStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CreditAddRs"/>
+				<xsd:element ref="CreditModRs"/>
+				<xsd:element ref="CreditRevRs"/>
+				<xsd:element ref="CreditStatusModRs"/>
+				<xsd:element ref="CreditCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="CreditStatusCode"/>
+			<xsd:element ref="EffDt"/>
+			<xsd:element ref="ApprovalId" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+			<xsd:element ref="Status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="CreditAuthAddRs"/>
+				<xsd:element ref="CreditAuthModRs"/>
+				<xsd:element ref="CreditAuthCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditAuthMsgRqInfo_Type">
+		<xsd:choice>
+			<xsd:element ref="CreditAuthAddRq"/>
+			<xsd:element ref="CreditAuthModRq"/>
+			<xsd:element ref="CreditAuthCanRq"/>
+			<xsd:element ref="CreditAuthInqRq"/>
+			<xsd:element ref="CreditAuthAudRq"/>
+			<xsd:element ref="CreditAuthSyncRq"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:element name="CreditAuthMsgRec" type="CreditAuthMsgRec_Type"/>
+	<xsd:element name="CreditAuthMsgRqInfo" type="CreditAuthMsgRqInfo_Type"/>
+	<xsd:element name="CreditMsgRec" type="CreditMsgRec_Type"/>
+	<xsd:element name="CreditAuthStatus" type="CreditAuthStatus_Type"/>
+	<xsd:element name="CreditAuthRec" type="CreditAuthRec_Type"/>
+	<xsd:element name="CreditMsgRqInfo" type="CreditMsgRqInfo_Type"/>
+	<xsd:element name="CreditHeldAmtExpDt" type="DateTime"/>
+	<xsd:element name="CreditStatus" type="CreditStatus_Type"/>
+	<xsd:element name="CreditStatusCode" type="CreditStatusCode_Type"/>
+	<xsd:element name="CreditRec" type="CreditRec_Type"/>
+	<xsd:element name="CreditAuthId" type="CreditAuthId_Type"/>
+	<xsd:element name="CreditAuthInfo" type="CreditAuthInfo_Type"/>
+	<xsd:element name="CreditInfo" type="CreditInfo_Type"/>
+	<xsd:element name="CreditAuthType" type="CreditAuthType_Type"/>
+	<xsd:element name="CreditType" type="OpenEnum"/>
+</xsd:schema>

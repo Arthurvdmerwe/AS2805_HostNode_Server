@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealAdd.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealAdvise.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExRateInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExRateRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealAud.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealSync.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealRev.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealStatusInq.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealStatusMod.xsd"/>
+	<xsd:include schemaLocation="IFX170_ForExDealCan.xsd"/>
+	<xsd:complexType name="ForExDealInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExRateDealType" minOccurs="0"/>
+			<xsd:element ref="ForExValDtType" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+					<xsd:element ref="ForExValDt"/>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element ref="StartDt"/>
+					<xsd:element ref="EndDt"/>
+				</xsd:sequence>
+			</xsd:choice>
+			<xsd:element ref="ExpDt" minOccurs="0"/>
+			<xsd:element ref="CurAmt"/>
+			<xsd:element ref="CurCode"/>
+			<xsd:sequence>
+				<xsd:sequence minOccurs="0">
+					<xsd:element ref="CurAmt"/>
+					<xsd:element ref="CurCode"/>
+				</xsd:sequence>
+				<xsd:element ref="SPRefId" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExDealMsgRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="CustId" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="MsgRecDt" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element ref="ForExDealAddRs"/>
+				<xsd:element ref="ForExDealModRs"/>
+				<xsd:element ref="ForExDealCanRs"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExDealMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExDealAddRq"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExDealRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExDealId"/>
+			<xsd:element ref="ForExDealInfo"/>
+			<xsd:element ref="ForExDealStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExDealStatus_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExDealStatusCode"/>
+			<xsd:element ref="StatusDesc" minOccurs="0"/>
+			<xsd:element ref="EffDt" minOccurs="0"/>
+			<xsd:element ref="StatusModBy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExRateMsgRqInfo_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExRateInqRq"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ForExRateRec_Type">
+		<xsd:sequence>
+			<xsd:element ref="ForExRateId" minOccurs="0"/>
+			<xsd:element ref="ForExRateInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ForExRateDealType" type="ClosedEnum"/>
+	<xsd:element name="ForExRateId" type="ForExRateId_Type"/>
+	<xsd:element name="ForExRateType" type="ForExRateType_Type"/>
+	<xsd:element name="ForExRateMsgRqInfo" type="ForExRateMsgRqInfo_Type"/>
+	<xsd:element name="ForExRateRec" type="ForExRateRec_Type"/>
+	<xsd:element name="ForExDealStatus" type="ForExDealStatus_Type"/>
+	<xsd:element name="ForExDealStatusCode" type="ClosedEnum"/>
+	<xsd:element name="ForExDealMsgRec" type="ForExDealMsgRec_Type"/>
+	<xsd:element name="ForExDealMsgRqInfo" type="ForExDealMsgRqInfo_Type"/>
+	<xsd:element name="ForExDealRec" type="ForExDealRec_Type"/>
+	<xsd:element name="ForExDealInfo" type="ForExDealInfo_Type"/>
+</xsd:schema>

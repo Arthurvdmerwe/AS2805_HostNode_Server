@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_TerminalLib.xsd"/>
+	<xsd:complexType name="TerminalSPObjDelRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="TerminalSPObjId"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TerminalSPObjDelRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="TerminalSPObjId" minOccurs="0"/>
+			<xsd:element ref="TerminalSPObjRec"/>
+			<xsd:element ref="CSPRefId" minOccurs="0"/>
+			<xsd:element ref="SPRefId" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TerminalSPObjDelRq" type="TerminalSPObjDelRq_Type"/>
+	<xsd:element name="TerminalSPObjDelRs" type="TerminalSPObjDelRs_Type"/>
+</xsd:schema>

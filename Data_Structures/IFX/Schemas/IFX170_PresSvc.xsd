@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ifxforum-org:XSD:1" targetNamespace="urn:ifxforum-org:XSD:1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="IFX170_CoreLib.xsd"/>
+	<xsd:include schemaLocation="IFX170_BillLib.xsd"/>
+	<xsd:complexType name="PresSvcRq_Type">
+		<xsd:sequence>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="BillerInqRq" minOccurs="0"/>
+				<xsd:element ref="BillerRevRq" minOccurs="0"/>
+				<xsd:element ref="BillInqRq" minOccurs="0"/>
+				<xsd:element ref="BillRevRq" minOccurs="0"/>
+				<xsd:element ref="BillStatusModRq" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:complexType name="PresSvcRs_Type">
+		<xsd:sequence>
+			<xsd:element ref="Status" minOccurs="0"/>
+			<xsd:element ref="RqUID"/>
+			<xsd:element ref="MsgRqHdr" minOccurs="0"/>
+			<xsd:element ref="MsgRsHdr" minOccurs="0"/>
+			<xsd:element ref="AsyncRqUID" minOccurs="0"/>
+			<xsd:element ref="SPName" minOccurs="0"/>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element ref="BillerInqRs" minOccurs="0"/>
+				<xsd:element ref="BillerRevRs" minOccurs="0"/>
+				<xsd:element ref="BillInqRs" minOccurs="0"/>
+				<xsd:element ref="BillRevRs" minOccurs="0"/>
+				<xsd:element ref="BillStatusModRs" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="Id" type="xsd:ID"/>
+	</xsd:complexType>
+	<xsd:element name="PresSvcRq" type="PresSvcRq_Type"/>
+	<xsd:element name="PresSvcRs" type="PresSvcRs_Type"/>
+</xsd:schema>
