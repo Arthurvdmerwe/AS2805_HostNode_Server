@@ -9,7 +9,7 @@ memc = memcache.Client(['127.0.0.1:11212'], debug=1)
 try:
     conn = MySQLdb.connect (host = "localhost",
                             user = "switch",
-                            passwd = "Potatohair51!",
+                            passwd = "********!",
                             db = "switch")
 except MySQLdb.Error, e:
      print "Error %d: %s" % (e.args[0], e.args[1])
