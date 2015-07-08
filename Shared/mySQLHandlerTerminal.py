@@ -177,8 +177,8 @@ def main():
     logger = logging.getLogger('simple_example')
     logger.setLevel(logging.DEBUG)
         
-    db = {'host':'127.0.0.1', 'port': 3306, 'dbuser':'switch', 'dbpassword':'Potatohair51!', 'dbname':'switch_office'}
-    #con = MySQLdb.Connect(host='127.0.0.1',port=3306,db='switch',user='switch',passwd='Potatohair51!')
+    db = {'host':'127.0.0.1', 'port': 3306, 'dbuser':'switch', 'dbpassword':'********!', 'dbname':'switch_office'}
+    #con = MySQLdb.Connect(host='127.0.0.1',port=3306,db='switch',user='switch',passwd='********!')
     sqlh = mySQLHandler(db)
     logger.addHandler(sqlh)
     # In main Thread
