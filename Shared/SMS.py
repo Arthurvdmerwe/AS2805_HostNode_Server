@@ -1,7 +1,7 @@
 import datetime
 
 from twilio.rest import TwilioRestClient
-
+#get a twillio account
 
 class SMS:
 
@@ -11,8 +11,8 @@ class SMS:
             self.CellNumber = "+61405025365"
             text = "%s\n" % (datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             text += Message
-            self.account_sid = "AC6a4a68fa058d4a3c8a9e1c53f6a0235f"
-            self.auth_token = "d24efcc4ad310535ae9776d26ed05020"
+            self.account_sid = "AC6a4a68fa05we5w8d4a3c8a9e1c53f6a0235fre"
+            self.auth_token = "d24efcc4ad310535ae9sd776d26ed05020"
             client = TwilioRestClient(self.account_sid, self.auth_token)
             self.Message = text
 
