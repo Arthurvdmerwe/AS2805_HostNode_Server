@@ -3,8 +3,8 @@ __author__ = 'root'
 #switch database
 switch_database_ip = '10.125.3.14'
 switch_database_port = 3306
-switch_database_user = 'root'
-switch_database_pwd = '1275'
+switch_database_user = '*****'
+switch_database_pwd = '*****'
 switch_database_database = 'switch'
 
 
