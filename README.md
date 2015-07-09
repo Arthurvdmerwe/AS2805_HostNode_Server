@@ -8,7 +8,7 @@ Here are the steps to get it working:
 4. generate your switch keys, and update them in the database
 5. get your keys from your host and insert them into the database.
 
-start your HostNode.py to initiate the logon and key exchange sequence.
+start your HostNode.py to initiate the logon and key exchange sequence. If you do not have a host, start the AS2805 Server to simulte a host.
 
 when you want to send a transaction, insert a record into the cuscal_host table i.e. 0200 request.
 the service will buid a AS2805 object and send it to your host for approval.
